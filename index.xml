@@ -6,14 +6,39 @@
     <description>Recent content on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 17 Nov 2020 10:59:55 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Nov 2020 11:23:29 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Css笔记</title>
-      <link>https://wuyining0130.github.io/posts/css%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Tue, 17 Nov 2020 10:59:55 +0800</pubDate>
+      <title>CSS</title>
+      <link>https://wuyining0130.github.io/posts/css/</link>
+      <pubDate>Tue, 17 Nov 2020 11:23:29 +0800</pubDate>
       
-      <guid>https://wuyining0130.github.io/posts/css%E7%AC%94%E8%AE%B0/</guid>
-      <description></description>
+      <guid>https://wuyining0130.github.io/posts/css/</guid>
+      <description>css 历史 李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书
+css 的牛逼之处 css 的全称叫做层叠样式表
+样式层叠 可以多次对同一选择器进行样式声明
+选择器层叠 可以用不同选择器对同一个元素进行样式声明
+文件层叠 可以用多个文件进行层叠
+这些特性使得 css 极度灵活，也为后来 css 被吐槽留下了隐患。
+==目前世界上使用最广泛的版本是 css2.1==
+caniuse.com 网站能帮你知道那些浏览器支持哪些特性(社区的力量)
+css 是艺术 不要问为什么 直接记住结果 所见即所学
+体系化学习 学一门语言必须学会什么 语法（怎么写代码）
+如何调试（怎么知道自己代码错了）
+在哪查资料（其实就是为了抄代码）
+标准制定者是谁
+如何学 ==copy==——抄文档、抄老师
+==run==——放在自己的机器上运行成功
+==modify==加入一点自己的想法，然后重新运行
+语法一 选择器{
+属性名：属性值；
+/_ 注释_/
+}
+注意事项 所有符号都是英文，如果写错浏览器会警告
+区分大小写，a 和 A 是不同的东西
+没有//注释
+最后一个分号可以省略，建议不要省略
+任何地方写错了，都不会报错，浏览器会直接忽略
+语法二：==at 语法== @charset &amp;#34;UTF-8&amp;#34;; @import url(2.</description>
     </item>
     
   </channel>
