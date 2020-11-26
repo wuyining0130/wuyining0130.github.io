@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>初探CSS | 我的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="css 历史 李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书
+css 的牛逼之处 css 的全称叫做层叠样式表
+样式层叠 可以多次对同一选择器进行样式声明
+选择器层叠 可以用不同选择器对同一个元素进行样式声明
+文件层叠 可以用多个文件进行层叠
+这些特性使得 css 极度灵活，也为后来 css 被吐槽留下了隐患。
+目前世界上使用最广泛的版本是 css2.1
+caniuse.com 网站能帮你知道那些浏览器支持哪些特性(社区的力量)
+css 是艺术 不要问为什么 直接记住结果 所见即所学
+体系化学习 学一门语言必须学会什么 语法（怎么写代码）
+如何调试（怎么知道自己代码错了）
+在哪查资料（其实就是为了抄代码）
+标准制定者是谁
+如何学 copy——抄文档、抄老师
+run——放在自己的机器上运行成功
+modify 加入一点自己的想法，然后重新运行
+语法一 选择器{
+属性名：属性值；
+/*注释*/
+}
+注意事项 所有符号都是英文，如果写错浏览器会警告
+区分大小写，a 和 A 是不同的东西
+没有//注释
+最后一个分号可以省略，建议不要省略
+任何地方写错了，都不会报错，浏览器会直接忽略
+语法二：at 语法 @charset &#34;UTF-8&#34;; @import url(2.">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="初探CSS" />
+<meta property="og:description" content="css 历史 李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书
+css 的牛逼之处 css 的全称叫做层叠样式表
+样式层叠 可以多次对同一选择器进行样式声明
+选择器层叠 可以用不同选择器对同一个元素进行样式声明
+文件层叠 可以用多个文件进行层叠
+这些特性使得 css 极度灵活，也为后来 css 被吐槽留下了隐患。
+目前世界上使用最广泛的版本是 css2.1
+caniuse.com 网站能帮你知道那些浏览器支持哪些特性(社区的力量)
+css 是艺术 不要问为什么 直接记住结果 所见即所学
+体系化学习 学一门语言必须学会什么 语法（怎么写代码）
+如何调试（怎么知道自己代码错了）
+在哪查资料（其实就是为了抄代码）
+标准制定者是谁
+如何学 copy——抄文档、抄老师
+run——放在自己的机器上运行成功
+modify 加入一点自己的想法，然后重新运行
+语法一 选择器{
+属性名：属性值；
+/*注释*/
+}
+注意事项 所有符号都是英文，如果写错浏览器会警告
+区分大小写，a 和 A 是不同的东西
+没有//注释
+最后一个分号可以省略，建议不要省略
+任何地方写错了，都不会报错，浏览器会直接忽略
+语法二：at 语法 @charset &#34;UTF-8&#34;; @import url(2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/" />
+<meta property="article:published_time" content="2020-11-17T11:23:29+08:00" />
+<meta property="article:modified_time" content="2020-11-17T11:23:29+08:00" />
+<meta itemprop="name" content="初探CSS">
+<meta itemprop="description" content="css 历史 李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书
+css 的牛逼之处 css 的全称叫做层叠样式表
+样式层叠 可以多次对同一选择器进行样式声明
+选择器层叠 可以用不同选择器对同一个元素进行样式声明
+文件层叠 可以用多个文件进行层叠
+这些特性使得 css 极度灵活，也为后来 css 被吐槽留下了隐患。
+目前世界上使用最广泛的版本是 css2.1
+caniuse.com 网站能帮你知道那些浏览器支持哪些特性(社区的力量)
+css 是艺术 不要问为什么 直接记住结果 所见即所学
+体系化学习 学一门语言必须学会什么 语法（怎么写代码）
+如何调试（怎么知道自己代码错了）
+在哪查资料（其实就是为了抄代码）
+标准制定者是谁
+如何学 copy——抄文档、抄老师
+run——放在自己的机器上运行成功
+modify 加入一点自己的想法，然后重新运行
+语法一 选择器{
+属性名：属性值；
+/*注释*/
+}
+注意事项 所有符号都是英文，如果写错浏览器会警告
+区分大小写，a 和 A 是不同的东西
+没有//注释
+最后一个分号可以省略，建议不要省略
+任何地方写错了，都不会报错，浏览器会直接忽略
+语法二：at 语法 @charset &#34;UTF-8&#34;; @import url(2.">
+<meta itemprop="datePublished" content="2020-11-17T11:23:29+08:00" />
+<meta itemprop="dateModified" content="2020-11-17T11:23:29+08:00" />
+<meta itemprop="wordCount" content="237">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初探CSS"/>
+<meta name="twitter:description" content="css 历史 李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书
+css 的牛逼之处 css 的全称叫做层叠样式表
+样式层叠 可以多次对同一选择器进行样式声明
+选择器层叠 可以用不同选择器对同一个元素进行样式声明
+文件层叠 可以用多个文件进行层叠
+这些特性使得 css 极度灵活，也为后来 css 被吐槽留下了隐患。
+目前世界上使用最广泛的版本是 css2.1
+caniuse.com 网站能帮你知道那些浏览器支持哪些特性(社区的力量)
+css 是艺术 不要问为什么 直接记住结果 所见即所学
+体系化学习 学一门语言必须学会什么 语法（怎么写代码）
+如何调试（怎么知道自己代码错了）
+在哪查资料（其实就是为了抄代码）
+标准制定者是谁
+如何学 copy——抄文档、抄老师
+run——放在自己的机器上运行成功
+modify 加入一点自己的想法，然后重新运行
+语法一 选择器{
+属性名：属性值；
+/*注释*/
+}
+注意事项 所有符号都是英文，如果写错浏览器会警告
+区分大小写，a 和 A 是不同的东西
+没有//注释
+最后一个分号可以省略，建议不要省略
+任何地方写错了，都不会报错，浏览器会直接忽略
+语法二：at 语法 @charset &#34;UTF-8&#34;; @import url(2."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/&amp;text=%e5%88%9d%e6%8e%a2CSS" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/&amp;title=%e5%88%9d%e6%8e%a2CSS" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">初探CSS</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-11-17T11:23:29+08:00">November 17, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="css-历史">css 历史</h1>
+<p>李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书</p>
+<h2 id="css-的牛逼之处">css 的牛逼之处</h2>
+<p>css 的全称叫做层叠样式表</p>
+<h3 id="样式层叠">样式层叠</h3>
+<p>可以多次对同一选择器进行样式声明</p>
+<h3 id="选择器层叠">选择器层叠</h3>
+<p>可以用不同选择器对同一个元素进行样式声明</p>
+<h3 id="文件层叠">文件层叠</h3>
+<p>可以用多个文件进行层叠</p>
+<p>这些特性使得 css 极度灵活，也为后来 css 被吐槽留下了隐患。</p>
+<p><em>目前世界上使用最广泛的版本是 css2.1</em></p>
+<p>caniuse.com 网站能帮你知道那些浏览器支持哪些特性(社区的力量)</p>
+<h1 id="css-是艺术">css 是艺术</h1>
+<p>不要问为什么 直接记住结果 所见即所学</p>
+<h1 id="体系化学习">体系化学习</h1>
+<h2 id="学一门语言必须学会什么">学一门语言必须学会什么</h2>
+<p>语法（怎么写代码）</p>
+<p>如何调试（怎么知道自己代码错了）</p>
+<p>在哪查资料（其实就是为了抄代码）</p>
+<p>标准制定者是谁</p>
+<h2 id="如何学">如何学</h2>
+<p>copy——抄文档、抄老师</p>
+<p>run——放在自己的机器上运行成功</p>
+<p>modify 加入一点自己的想法，然后重新运行</p>
+<h2 id="语法一">语法一</h2>
+<p>选择器{</p>
+<p>属性名：属性值；</p>
+<p><code>/*注释*/</code></p>
+<p>}</p>
+<h2 id="注意事项">注意事项</h2>
+<p>所有符号都是英文，如果写错浏览器会警告</p>
+<p>区分大小写，a 和 A 是不同的东西</p>
+<p>没有//注释</p>
+<p>最后一个分号可以省略，建议不要省略</p>
+<p>任何地方写错了，都不会报错，浏览器会直接忽略</p>
+<h2 id="语法二at-语法">语法二：at 语法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS">@<span style="color:#66d9ef">charset</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span>;
+@<span style="color:#66d9ef">import</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">2</span>.<span style="color:#a6e22e">css</span><span style="color:#f92672">)</span>;
+@<span style="color:#66d9ef">media</span><span style="color:#f92672">(</span><span style="color:#f92672">min-width</span>:<span style="color:#a6e22e">100px</span><span style="color:#f92672">)</span> <span style="color:#f92672">and</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">200px</span><span style="color:#f92672">)</span>{
+    <span style="color:#f92672">语法一</span>
+}
+</code></pre></div><h2 id="注意事项-1">注意事项</h2>
+<p>@charset 必须放在第一行</p>
+<p>前两个 at 语法必须以分号；结尾</p>
+<p>@media 语法会单独教学</p>
+<p>charset 是字符集的意思，但 UTF-8 是字符编码 encoding，这是历史遗留问题。</p>
+<h3 id="utf-8-的渊源">UTF-8 的渊源</h3>
+<p>从前字符集和编码是相同的，后来出现了一个叫 unicode 的字符集，包括 UTF-8/UTF-16/UTF-32，只能把一个字符编码放在字符集的位置。</p>
+<h3 id="如何调试">如何调试</h3>
+<p>使用 W3C 验证器（在线/命令工具）</p>
+<p>使用 vscode/webstorm 看颜色</p>
+<p>使用开发者工具看警告</p>
+<h2 id="必掌握border-调试法"><strong>必掌握：border 调试法</strong></h2>
+<p>怀疑某个元素有问题就给这个元素加 border</p>
+<p>border 没出现说明选择器错了或者语法崩了</p>
+<p>border 出现了检查边界是否符合预期</p>
+<p>bug 解决了才可以把 border 删掉</p>
+<h1 id="文档流">文档流</h1>
+<h2 id="几个重要的概念">几个重要的概念</h2>
+<p>文档流 normal flow</p>
+<p>块、内联、内联块</p>
+<p>margin 合并</p>
+<p>两种盒模型（border-box 更符合人类思维）</p>
+<p>元素已经不分外联元素和块级元素，所有元素都可以是外联元素和块级元素。</p>
+<p><strong>不要在 inline 元素里写 block 元素</strong></p>
+<h2 id="流动方向">流动方向</h2>
+<p>inline 元素从左到右，到达最右边才会换行</p>
+<p>block 元素从上到下，每一个都另起一行</p>
+<p>inline-block 也是从左到右</p>
+<h2 id="宽度">宽度</h2>
+<p>inline 宽度为内部 inline 元素的和，不能用 width 指定</p>
+<p>block 默认自动计算宽度（auto），可用 width 指定</p>
+<p>inline-block 结合前两者特点，可用 width</p>
+<p>div 的默认宽度是 auto，不是 100%，永远不需要写宽度百分之百，否则会出现 bug</p>
+<h2 id="高度">高度</h2>
+<p>inline 高度由 inline-height 间接确定，跟 height 无关，跟 padding 也无关</p>
+<p>block 高度由文档内部流元素决定，可以设 heigjt</p>
+<p>inline-block 跟 block 类似，可以设 height，</p>
+<p>如果 div 里什么都没有，默认高度是 0</p>
+<h2 id="overflow-溢出">overflow 溢出</h2>
+<h3 id="当内容大于容器">当内容大于容器</h3>
+<p>当内容的宽度或高度大于容器的，会溢出</p>
+<p>可用 overflow 来设置是否显示滚动条</p>
+<p>auto 是灵活设置（超出时显示，不超出时不显示）</p>
+<p>scroll 是永远显示（几乎没有人用）</p>
+<p>hidden 是直接隐藏溢出部分</p>
+<p>visible 是直接显示溢出部分</p>
+<p>overflow 是可以分为 overflow-x 和 overflow-y（不是很好用）</p>
+<h2 id="脱离文档流">脱离文档流</h2>
+<p>block 高度由内部文档流元素决定，可以设 height</p>
+<p>意味着有些元素可以脱离文档流</p>
+<p>float</p>
+<p>position：absolute/fixed</p>
+<p>不用上面属性就不会脱离</p>
+<h1 id="盒模型">盒模型</h1>
+<p>content-box 和 border-box</p>
+<p>前者内容就是盒子的边界，后者的边框才是盒子的边界
+<img src="https://i.loli.net/2020/11/18/xbUckwJmz85afoZ.png" alt="盒模型_00.png"></p>
+<h2 id="margin-合并">margin 合并</h2>
+<p>父子/兄弟</p>
+<p>只有上下重叠，左右不重叠</p>
+<h3 id="取消合并">取消合并</h3>
+<p>父子合并用 padding/border/overflow:hidden 挡住或者 display:flex</p>
+<p>兄弟合并是符合预期的，可以用 inline-block 消除</p>
+<h1 id="颜色">颜色</h1>
+<p>十六进制颜色码#FF6600 或者#F60</p>
+<p>RGBA 颜色 rgb(0,0,0)或者 rgba(0,0,0,1)</p>
+<p>hsl 颜色 hsl(360,100%,100%)</p>
+<p>取色软件：snipaste</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://wuyining0130.github.io/" >
+    &copy;  我的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

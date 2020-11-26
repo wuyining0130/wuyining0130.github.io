@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>CSS布局 | 我的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="CSS 布局 布局是什么 把页面分成一块一块，按左中右、上中下等排列
+布局种类   固定宽度布局，一般宽度为 960/1000/1024 px
+  不固定宽度布局，主要靠文档流的原理来布局，文档流本来就是自适应的，不需要增加额外的样式。
+  响应式布局，即 PC 上固定宽度，手机上不固定宽度，说白了就是混合布局。
+  布局的两种思路  从大到小：先定下大局，然后完善每个部分的小布局。 从小到大：先完成小布局，然后组成大布局。  布局需要用到哪些属性 float 布局 步骤  在子元素上加 float:left 和 width(脱离文档流) 在父元素上加.clearfix(重新包裹住子元素)  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 第一次写 CSS 代码，记录一下 reset
+*{margin:0;padding:0;box-sizing:border-box; 经验   有经验者会留一些空间或者最后一个不设 width
+  不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的
+  IE6/7 存在双倍 margin bug,解决方法：
+  针对 IE6/7 把 margin 减半">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="CSS布局" />
+<meta property="og:description" content="CSS 布局 布局是什么 把页面分成一块一块，按左中右、上中下等排列
+布局种类   固定宽度布局，一般宽度为 960/1000/1024 px
+  不固定宽度布局，主要靠文档流的原理来布局，文档流本来就是自适应的，不需要增加额外的样式。
+  响应式布局，即 PC 上固定宽度，手机上不固定宽度，说白了就是混合布局。
+  布局的两种思路  从大到小：先定下大局，然后完善每个部分的小布局。 从小到大：先完成小布局，然后组成大布局。  布局需要用到哪些属性 float 布局 步骤  在子元素上加 float:left 和 width(脱离文档流) 在父元素上加.clearfix(重新包裹住子元素)  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 第一次写 CSS 代码，记录一下 reset
+*{margin:0;padding:0;box-sizing:border-box; 经验   有经验者会留一些空间或者最后一个不设 width
+  不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的
+  IE6/7 存在双倍 margin bug,解决方法：
+  针对 IE6/7 把 margin 减半" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/" />
+<meta property="article:published_time" content="2020-11-26T13:27:47+08:00" />
+<meta property="article:modified_time" content="2020-11-26T13:27:47+08:00" />
+<meta itemprop="name" content="CSS布局">
+<meta itemprop="description" content="CSS 布局 布局是什么 把页面分成一块一块，按左中右、上中下等排列
+布局种类   固定宽度布局，一般宽度为 960/1000/1024 px
+  不固定宽度布局，主要靠文档流的原理来布局，文档流本来就是自适应的，不需要增加额外的样式。
+  响应式布局，即 PC 上固定宽度，手机上不固定宽度，说白了就是混合布局。
+  布局的两种思路  从大到小：先定下大局，然后完善每个部分的小布局。 从小到大：先完成小布局，然后组成大布局。  布局需要用到哪些属性 float 布局 步骤  在子元素上加 float:left 和 width(脱离文档流) 在父元素上加.clearfix(重新包裹住子元素)  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 第一次写 CSS 代码，记录一下 reset
+*{margin:0;padding:0;box-sizing:border-box; 经验   有经验者会留一些空间或者最后一个不设 width
+  不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的
+  IE6/7 存在双倍 margin bug,解决方法：
+  针对 IE6/7 把 margin 减半">
+<meta itemprop="datePublished" content="2020-11-26T13:27:47+08:00" />
+<meta itemprop="dateModified" content="2020-11-26T13:27:47+08:00" />
+<meta itemprop="wordCount" content="465">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CSS布局"/>
+<meta name="twitter:description" content="CSS 布局 布局是什么 把页面分成一块一块，按左中右、上中下等排列
+布局种类   固定宽度布局，一般宽度为 960/1000/1024 px
+  不固定宽度布局，主要靠文档流的原理来布局，文档流本来就是自适应的，不需要增加额外的样式。
+  响应式布局，即 PC 上固定宽度，手机上不固定宽度，说白了就是混合布局。
+  布局的两种思路  从大到小：先定下大局，然后完善每个部分的小布局。 从小到大：先完成小布局，然后组成大布局。  布局需要用到哪些属性 float 布局 步骤  在子元素上加 float:left 和 width(脱离文档流) 在父元素上加.clearfix(重新包裹住子元素)  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 第一次写 CSS 代码，记录一下 reset
+*{margin:0;padding:0;box-sizing:border-box; 经验   有经验者会留一些空间或者最后一个不设 width
+  不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的
+  IE6/7 存在双倍 margin bug,解决方法：
+  针对 IE6/7 把 margin 减半"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/&amp;text=CSS%e5%b8%83%e5%b1%80" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/&amp;title=CSS%e5%b8%83%e5%b1%80" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">CSS布局</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-11-26T13:27:47+08:00">November 26, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="css-布局">CSS 布局</h1>
+<h2 id="布局是什么">布局是什么</h2>
+<p>把页面分成一块一块，按左中右、上中下等排列</p>
+<h2 id="布局种类">布局种类</h2>
+<ol>
+<li>
+<p>固定宽度布局，一般宽度为 960/1000/1024 px</p>
+</li>
+<li>
+<p>不固定宽度布局，主要靠文档流的原理来布局，文档流本来就是自适应的，不需要增加额外的样式。</p>
+</li>
+<li>
+<p>响应式布局，即 PC 上固定宽度，手机上不固定宽度，说白了就是混合布局。</p>
+</li>
+</ol>
+<h2 id="布局的两种思路">布局的两种思路</h2>
+<ol>
+<li>从大到小：先定下大局，然后完善每个部分的小布局。</li>
+<li>从小到大：先完成小布局，然后组成大布局。</li>
+</ol>
+<h2 id="布局需要用到哪些属性">布局需要用到哪些属性</h2>
+<h1 id="float-布局">float 布局</h1>
+<h3 id="步骤">步骤</h3>
+<ol>
+<li>在子元素上加 float:left 和 width(脱离文档流)</li>
+<li>在父元素上加.clearfix(重新包裹住子元素)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">clearfix</span>:<span style="color:#a6e22e">after</span> {
+  <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;&#34;</span>;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">clear</span>: <span style="color:#66d9ef">both</span>;
+}
+</code></pre></div><p>第一次写 CSS 代码，记录一下 reset</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">*</span>{<span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">box-sizing</span>:<span style="color:#66d9ef">border-box</span>;
+</code></pre></div><h3 id="经验">经验</h3>
+<ol>
+<li>
+<p>有经验者会留一些空间或者最后一个不设 width</p>
+</li>
+<li>
+<p>不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的</p>
+</li>
+<li>
+<p>IE6/7 存在双倍 margin bug,解决方法：</p>
+<ol>
+<li>
+<p>针对 IE6/7 把 margin 减半</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">margin-left</span><span style="color:#f92672">:</span> <span style="color:#f92672">10px</span><span style="color:#f92672">;</span> <span style="color:#75715e">/*普通浏览器*/</span>
+<span style="color:#f92672">_margin-left</span><span style="color:#f92672">:</span> <span style="color:#f92672">5px</span><span style="color:#f92672">;</span> <span style="color:#75715e">/*IE浏览器*/</span>
+</code></pre></div></li>
+<li>
+<p>神来一笔:再加一个<code>display：inline-block</code></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="实践">实践</h2>
+<h3 id="不同布局">不同布局</h3>
+<ol>
+<li>用 float 做四栏布局（如导航）</li>
+</ol>
+<p>​<a href="http://js.jirengu.com/poguqazemu/1/edit?html,css,output">http://js.jirengu.com/poguqazemu/1/edit?html,css,output</a></p>
+<ol start="2">
+<li>用 float 做平均布局（如产品展示区）</li>
+</ol>
+<p><a href="http://js.jirengu.com/zesehogipa/2/edit?html,css,output">http://js.jirengu.com/zesehogipa/2/edit?html,css,output</a></p>
+<p><code>outline</code>可以用来代替<code>border</code> 因为其不占宽度</p>
+<h3 id="经验-1">经验</h3>
+<ol>
+<li>加上头尾，即可满足所有 PC 页面需求</li>
+<li>手机页面不用 float</li>
+<li>float 要程序员自己计算宽度，不灵活</li>
+<li>float 用来应付 IE 足矣</li>
+</ol>
+<h1 id="flex-布局">flex 布局</h1>
+<h2 id="容器-container">容器 container</h2>
+<h2 id="flex-container-的样式">flex container 的样式</h2>
+<h3 id="让一个元素变成-flex-容器">让一个元素变成 flex 容器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>; <span style="color:#75715e">/*or inline-flex*/</span>
+}
+</code></pre></div><p><img src="/container.png" alt="image"></p>
+<h3 id="改变-items-流动方向主轴">改变 items 流动方向（主轴）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">flex-direction</span>: <span style="color:#a6e22e">row</span>(<span style="color:#960050;background-color:#1e0010">默认</span>) <span style="color:#f92672">/</span> <span style="color:#66d9ef">row</span><span style="color:#f92672">-</span><span style="color:#66d9ef">reverse</span><span style="color:#f92672">/</span><span style="color:#66d9ef">column</span><span style="color:#f92672">/</span>colunmn-reverse;
+}
+</code></pre></div><p><img src="/flex-direction.png" alt="image"></p>
+<h3 id="改变折行">改变折行</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">flex-wrap</span>: <span style="color:#66d9ef">nowrap</span><span style="color:#960050;background-color:#1e0010">（默认）</span><span style="color:#f92672">/</span><span style="color:#66d9ef">wrap</span><span style="color:#f92672">/</span><span style="color:#66d9ef">wrap</span><span style="color:#f92672">-</span><span style="color:#66d9ef">reverse</span>;
+}
+</code></pre></div><p><img src="/flex-wrap.png" alt="image"></p>
+<h3 id="主轴对齐方式">主轴对齐方式</h3>
+<p>默认主轴是横轴 除非你改变了 flex-direction 方向</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">justify-content</span>: <span style="color:#66d9ef">flex</span><span style="color:#f92672">-</span><span style="color:#66d9ef">start</span><span style="color:#960050;background-color:#1e0010">（默认）</span><span style="color:#f92672">/</span><span style="color:#66d9ef">flex</span><span style="color:#f92672">-</span><span style="color:#66d9ef">end</span><span style="color:#f92672">/</span><span style="color:#66d9ef">space</span><span style="color:#f92672">-</span>between<span style="color:#f92672">/</span><span style="color:#66d9ef">space</span><span style="color:#f92672">-</span>around<span style="color:#f92672">/</span><span style="color:#66d9ef">space</span><span style="color:#f92672">-</span>evenly;
+}
+</code></pre></div><p><img src="/justify-content.png" alt="image"></p>
+<h3 id="次轴对齐">次轴对齐</h3>
+<p>默认次轴是纵轴</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span>{
+    <span style="color:#66d9ef">align-items</span>:<span style="color:#a6e22e">stretch</span>(<span style="color:#960050;background-color:#1e0010">默认）</span><span style="color:#f92672">/</span><span style="color:#66d9ef">flex</span><span style="color:#f92672">-</span><span style="color:#66d9ef">start</span><span style="color:#f92672">/</span><span style="color:#66d9ef">flex</span><span style="color:#f92672">-</span><span style="color:#66d9ef">end</span><span style="color:#f92672">/</span><span style="color:#66d9ef">center</span><span style="color:#f92672">/</span><span style="color:#a6e22e">baseline</span>(<span style="color:#960050;background-color:#1e0010">很少用</span>)
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p><img src="/align-items.png" alt="image"></p>
+<h3 id="多行内容">多行内容</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">justify-content</span>: <span style="color:#66d9ef">flex</span><span style="color:#f92672">-</span><span style="color:#66d9ef">start</span><span style="color:#960050;background-color:#1e0010">（默认）</span><span style="color:#f92672">/</span><span style="color:#66d9ef">flex</span><span style="color:#f92672">-</span><span style="color:#66d9ef">end</span><span style="color:#f92672">/</span><span style="color:#66d9ef">space</span><span style="color:#f92672">-</span>between<span style="color:#f92672">/</span><span style="color:#66d9ef">space</span><span style="color:#f92672">-</span>around<span style="color:#f92672">/</span><span style="color:#66d9ef">center</span><span style="color:#f92672">/</span><span style="color:#66d9ef">stretch</span>;
+}
+</code></pre></div><p><img src="/justify--content.png" alt="image"></p>
+<h2 id="flex-item">flex item</h2>
+<h3 id="item-上面加-order-的属性">item 上面加 order 的属性</h3>
+<p>order 默认是 0 可以通过改变 order 改变 item 排列顺序</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">first-child</span><span style="color:#75715e">/*这段代码不能有空格*/</span> {
+  <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">100</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">2</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">1</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">3</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">3</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">4</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">4</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">last-child</span> {
+  <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">5</span>;
+}
+</code></pre></div><p><img src="/order.png" alt="image"></p>
+<h3 id="item-上面加-flex-grow">item 上面加 flex-grow</h3>
+<p>flex-grow 默认是 0 可以通过改变 flex-grow 改变 item 空间分配</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">first-child</span> {
+  <span style="color:#66d9ef">flex-grow</span>: <span style="color:#ae81ff">1</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">2</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">flex-grow</span>: <span style="color:#ae81ff">2</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">3</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">flex-grow</span>: <span style="color:#ae81ff">1</span>;
+}
+</code></pre></div><p><img src="/flex-grow.png" alt="image"></p>
+<h3 id="flex-shrink-控制如何变瘦">flex-shrink 控制如何变瘦</h3>
+<p>空间小于原始宽度时才会起作用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">item</span> {
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">150</span><span style="color:#66d9ef">px</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">first-child</span> {
+  <span style="color:#66d9ef">flex-shrink</span>: <span style="color:#ae81ff">1</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">2</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">flex-shrink</span>: <span style="color:#ae81ff">5</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">first-child</span><span style="color:#f92672">(</span><span style="color:#f92672">3</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">flex-shrink</span>: <span style="color:#ae81ff">1</span>;
+}
+</code></pre></div><p>一般写 flex-shrink：0 防止变瘦，默认是 1</p>
+<h3 id="flex-basis-控制基准宽度">flex-basis 控制基准宽度</h3>
+<p>默认是 auto</p>
+<h3 id="flexflex-grow-flex-shrink-flex-basis">flex:flex-grow flex-shrink flex-basis</h3>
+<p>缩写：空格隔开</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">first-child</span> {
+  <span style="color:#66d9ef">flex</span>: <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">2</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">flex</span>: <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span><span style="color:#960050;background-color:#1e0010">；</span>;
+}
+.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-chils</span><span style="color:#f92672">(</span><span style="color:#f92672">3</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">flex</span>: <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+}
+</code></pre></div><h2 id="align-self-定制-align-items">align-self 定制 align-items</h2>
+<p>可以让某一个 item 特立独行 不能放在 container 里</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">item</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">4</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">align-self</span>: <span style="color:#66d9ef">flex</span><span style="color:#f92672">-</span><span style="color:#66d9ef">end</span>;
+}
+</code></pre></div><h2 id="重点工作基本只用这些">重点(工作基本只用这些)</h2>
+<ol>
+<li>display:flex</li>
+<li>flex-direction:row/column</li>
+<li>flex-wrap:wrap</li>
+<li>just-content:center/space-between</li>
+<li>align-items:center</li>
+</ol>
+<h2 id="经验-2">经验</h2>
+<ol>
+<li>永远不要把 width 和 height 写死，除非特殊说明</li>
+<li>用 min-width/max-width/min-height/max-height</li>
+<li>flex 可以基本满足所有需求</li>
+<li>flex 和 margin-xxx:auto 配合有意外的效果</li>
+</ol>
+<h3 id="写死">写死</h3>
+<p>width:100px</p>
+<h3 id="不写死">不写死</h3>
+<p>width:50%</p>
+<p>max-width:100px</p>
+<p>width:30vw</p>
+<p>min-width:80%</p>
+<p>特点：不使用 px，或者加 min man 前缀</p>
+<h1 id="前端戒律">前端戒律</h1>
+<ul>
+<li>
+<p>必须先给设计稿</p>
+</li>
+<li>
+<p>两套界面必须两套设计稿</p>
+</li>
+</ul>
+<h1 id="如何在两套布局中切换">如何在两套布局中切换</h1>
+<h1 id="grid-布局">Grid 布局</h1>
+<p>功能最强大的布局，二维布局用 Grid，一维布局用 Flex</p>
+<h2 id="grid-也分-container-和-items">Grid 也分 container 和 items</h2>
+<h2 id="成为-container">成为 container</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">grid</span><span style="color:#f92672">|</span> <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">grid</span>;
+}
+</code></pre></div><h2 id="行和列">行和列</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">auto</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">grid-template-rows</span>: <span style="color:#ae81ff">25</span><span style="color:#66d9ef">%</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">auto</span>;
+}
+</code></pre></div><h2 id="你还可以给每条线取名字">你还可以给每条线取名字</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">grid-template-columns</span>:
+    [<span style="color:#66d9ef">first</span>]<span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>[line2]<span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>[line3]<span style="color:#66d9ef">auto</span>
+    [col4-start]<span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>[five]<span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>[<span style="color:#66d9ef">end</span>];
+  <span style="color:#66d9ef">grid-template-rows</span>: [row1-start]<span style="color:#ae81ff">25</span><span style="color:#66d9ef">%</span>[row1-end]<span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>[third-line]<span style="color:#66d9ef">auto</span>[<span style="color:#66d9ef">last</span><span style="color:#f92672">-</span>line];
+}
+</code></pre></div><h2 id="取名结果">取名结果</h2>
+<h2 id="取名有啥用">取名有啥用</h2>
+<p>item 可以设置范围</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">item-a</span> {
+  <span style="color:#66d9ef">grid-column-start</span>: <span style="color:#ae81ff">2</span>;
+  grid-colume-end: five;
+  <span style="color:#66d9ef">grid-row-start</span>: row1-start;
+  <span style="color:#66d9ef">grid-row-end</span>: <span style="color:#ae81ff">3</span>;
+}
+</code></pre></div><h2 id="fr-free-space-巧计份-fr主要用来做平均布局">fr-free space 巧计：份 fr（主要用来做平均布局）</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">1</span>fr <span style="color:#ae81ff">1</span>fr <span style="color:#ae81ff">1</span>fr;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">1</span>fr <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">1</span>fr <span style="color:#ae81ff">1</span>fr;
+}
+</code></pre></div><h2 id="分区-grid-template-areas">分区 grid-template-areas</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">item-a</span> {
+  <span style="color:#66d9ef">grid-area</span>: header;
+}
+.<span style="color:#a6e22e">item-b</span> {
+  <span style="color:#66d9ef">grid-area</span>: main;
+}
+<span style="color:#f92672">item-c</span> {
+  <span style="color:#66d9ef">grid-area</span>: sidebar;
+}
+<span style="color:#f92672">item-d</span> {
+  <span style="color:#66d9ef">grid-area</span>: footer;
+}
+.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">grid</span>;
+  <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">grid-template-rows</span>: <span style="color:#66d9ef">auto</span>;
+  <span style="color:#66d9ef">grid-template-areas</span>:
+    <span style="color:#e6db74">&#34;header header header header&#34;</span>
+    <span style="color:#e6db74">&#34;main main . sidebar&#34;</span>
+    <span style="color:#e6db74">&#34;footer footer footer footer&#34;</span>;
+}
+</code></pre></div><h2 id="分区-grid-template-areas-1">分区 grid-template-areas</h2>
+<h2 id="空隙-gap">空隙 gap</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">container</span> {
+  <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">grid-template-rows</span>: <span style="color:#ae81ff">80</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">auto</span> <span style="color:#ae81ff">80</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">grid-column-gap</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">grid-row-gap</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+}
+</code></pre></div><h2 id="grid-属性太多">grid 属性太多</h2>
+<h2 id="实践-1">实践</h2>
+<h3 id="布局">布局</h3>
+<p>Grid 尤其适合不规则布局</p>
+<h3 id="经验-3">经验</h3>
+<p>等到 Grid 普及后，前端对 CSS 要求会进一步降低</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://wuyining0130.github.io/" >
+    &copy;  我的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

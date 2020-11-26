@@ -6,13 +6,30 @@
     <description>Recent content in Posts on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 17 Nov 2020 11:23:29 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Nov 2020 13:27:47 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CSS</title>
-      <link>https://wuyining0130.github.io/posts/css/</link>
+      <title>CSS布局</title>
+      <link>https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Thu, 26 Nov 2020 13:27:47 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/</guid>
+      <description>CSS 布局 布局是什么 把页面分成一块一块，按左中右、上中下等排列
+布局种类   固定宽度布局，一般宽度为 960/1000/1024 px
+  不固定宽度布局，主要靠文档流的原理来布局，文档流本来就是自适应的，不需要增加额外的样式。
+  响应式布局，即 PC 上固定宽度，手机上不固定宽度，说白了就是混合布局。
+  布局的两种思路  从大到小：先定下大局，然后完善每个部分的小布局。 从小到大：先完成小布局，然后组成大布局。  布局需要用到哪些属性 float 布局 步骤  在子元素上加 float:left 和 width(脱离文档流) 在父元素上加.clearfix(重新包裹住子元素)  .clearfix:after { content: &amp;#34;&amp;#34;; display: block; clear: both; } 第一次写 CSS 代码，记录一下 reset
+*{margin:0;padding:0;box-sizing:border-box; 经验   有经验者会留一些空间或者最后一个不设 width
+  不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的
+  IE6/7 存在双倍 margin bug,解决方法：
+  针对 IE6/7 把 margin 减半</description>
+    </item>
+    
+    <item>
+      <title>初探CSS</title>
+      <link>https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/</link>
       <pubDate>Tue, 17 Nov 2020 11:23:29 +0800</pubDate>
       
-      <guid>https://wuyining0130.github.io/posts/css/</guid>
+      <guid>https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/</guid>
       <description>css 历史 李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书
 css 的牛逼之处 css 的全称叫做层叠样式表
 样式层叠 可以多次对同一选择器进行样式声明
