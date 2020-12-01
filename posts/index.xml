@@ -6,7 +6,23 @@
     <description>Recent content in Posts on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 26 Nov 2020 13:27:47 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Dec 2020 00:36:03 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS定位</title>
+      <link>https://wuyining0130.github.io/posts/css%E5%AE%9A%E4%BD%8D/</link>
+      <pubDate>Wed, 02 Dec 2020 00:36:03 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/posts/css%E5%AE%9A%E4%BD%8D/</guid>
+      <description>CSS 定位 CSS 布局和定位有啥区别 布局是屏幕平面上的 定位是垂直于屏幕的
+一个 div 的分层 正常的文字，谁出现的晚，谁在更上面 浮动元素脱离文档流 新属性-position position  static：默认值，当前元素在文档流里（一般不写) relative：相对定位，升起来，但不脱离文档流 absolute：绝对定位，定位基准是祖先里的非 static fixed：固定定位，定位基准是 viewport（有诈） sticky：粘滞定位，不好描述直接举例  经验  如果你写了 absolute，一般都得补一个 relative 如果你写了 absolute 或 fixed，一定要补 top 和 left sticky 兼容性很差，几乎不能用  position：relative 使用场景  用于做位移（很少用，基本上都能用其他属性代替） 用于给 absolute 元素做爸爸  配合 z-index   z-index:默认值 auto，计算出来的值是 0，不创建新层叠上下文
+  z-index：0/1/2
+或
+z-index：-1/-2
+都可取
+谁的 z-index 越大 谁在上面
+  经验  写 z-index：9999 都是彩笔 学会管理 z-index  position：absolute 使用场景  脱离原来的位置，另起一层，比如对话框的关闭按钮  ​ http://js.</description>
+    </item>
+    
     <item>
       <title>CSS布局</title>
       <link>https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/</link>
