@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://wuyining0130.github.io/posts/" />
-<meta property="og:updated_time" content="2020-12-02T00:36:03+08:00" />
+<meta property="og:updated_time" content="2020-12-04T15:13:53+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -98,6 +98,26 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://wuyining0130.github.io/posts/css%E5%8A%A8%E7%94%BB/" class="link black dim">
+        CSS动画
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      动画 定义 由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
+概念  帧：每个禁止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
+渲染性能
+使用 transform 来实现动画
+查看 CSS 各属性触发什么 https://csstriggers.com/
+渲染器渲染过程  根据 HTML 构建 HTML 树（DOM） 根据 CSS 构建 CSS 树（CSSOM） 将两棵树合并成一颗渲染树（render tree） Layout 布局（文档流、盒模型、计算大小和位置） Paint 绘制（把边框颜色、文字颜色、阴影等画出来） Compose 合成（根据层叠关系展示画面）  三棵树 如何更新样式 一般我们用 JS 来更新样式  比如 div.
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
