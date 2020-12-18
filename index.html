@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://wuyining0130.github.io/" />
-<meta property="og:updated_time" content="2020-12-04T15:13:53+08:00" />
+<meta property="og:updated_time" content="2020-12-19T00:53:49+08:00" />
 <meta itemprop="name" content="我的博客">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -129,13 +129,91 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/" class="color-inherit dim link">
+            内存图与JS世界
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          操作系统常识 Operating System 操作系统 简称 OS
+runtime 运行时（需要的东西）
+environment 环境，简称 env
+kernel 内核
+compile 编译
+memory 记忆、存储
+一切都运行在内存里 开机
+ 操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
+ 首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
+ 你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例
+        </div>
+          <a href="https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://wuyining0130.github.io/posts/http%E5%85%A8%E8%A7%A3/" class="color-inherit dim link">
+            HTTP全解
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          WWW 的历史 WWW=URL+HTTP+HTML
+World Wide Web 万维网
+让每个人输入网址就能看到网页
+神说要有网址 李爵士就发明了 URL
+神说要有网页 李爵士就发明了 HTML
+为了让这个系统更加完善 李爵士发明了 HTTP
+HTTP 全称以及定义 HyperText Transfer Protocol
+是一种用于分布式、协作式和超媒体信息系统的应用层协议
+先从 IP 讲起 Internet Protocal 主要约定了两件事
+ 如何定位一台设备 如何封装数据，以跟其他设备交流  只要你处在互联网中，就一定拥有一个独立 IP
+路由器的功能 现在路由器有两个 IP，一个外网 IP 和一个内网 IP。
+内网中的设备可以互相访问，但是不能直接访问外网。
+内网设备要想访问外网，就必须经过路由器中转。
+外网中的设备可以互相访问，但是无法访问你的内网。
+外网设备要想把内容送到内网，也必须通过路由器。
+也就是说内网和外网就像两个隔绝的空间，无法互通，唯一的联通的就是路由器。所以路由器有时候也被叫做“网关''
+几个特殊的 IP   127.0.0.1 表示自己
+  localhost 通过 hosts 指定为自己
+  0.0.0.0 不表示任何设备
+  端口 port 一台机器可以提供很多服务，每个服务一个号码，这个号码就叫端口号 port
+常用端口  要提供 HTTP 服务最好使用 80 端口 要提供 HTTP 服务最好使用 443 端口 要提供 FTP 服务最好使用 21 端口 一共有 65535 个端口  端口使用规则  0 到 1023 号端口是留给系统使用的 你只有拥有管理员权限之后，才能使用这 1024 个端口 其他端口可以给普通用户使用 http-server 默认使用 8080 端口 一个端口如果被占用，你就只能换一个端口  域名   命令 ping.
+        </div>
+          <a href="https://wuyining0130.github.io/posts/http%E5%85%A8%E8%A7%A3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://wuyining0130.github.io/posts/css%E5%8A%A8%E7%94%BB/" class="color-inherit dim link">
             CSS动画
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
           动画 定义 由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
-概念  帧：每个禁止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
+概念  帧：每个静止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
 渲染性能
 使用 transform 来实现动画
 查看 CSS 各属性触发什么 https://csstriggers.com/
@@ -150,75 +228,24 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://wuyining0130.github.io/posts/css%E5%AE%9A%E4%BD%8D/" class="color-inherit dim link">
-            CSS定位
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          CSS 定位 CSS 布局和定位有啥区别 布局是屏幕平面上的 定位是垂直于屏幕的
-一个 div 的分层 正常的文字，谁出现的晚，谁在更上面 浮动元素脱离文档流 新属性-position position  static：默认值，当前元素在文档流里（一般不写) relative：相对定位，升起来，但不脱离文档流 absolute：绝对定位，定位基准是祖先里的非 static fixed：固定定位，定位基准是 viewport（有诈） sticky：粘滞定位，不好描述直接举例  经验  如果你写了 absolute，一般都得补一个 relative 如果你写了 absolute 或 fixed，一定要补 top 和 left sticky 兼容性很差，几乎不能用  position：relative 使用场景  用于做位移（很少用，基本上都能用其他属性代替） 用于给 absolute 元素做爸爸  配合 z-index   z-index:默认值 auto，计算出来的值是 0，不创建新层叠上下文
-  z-index：0/1/2
-或
-z-index：-1/-2
-都可取
-谁的 z-index 越大 谁在上面
-  经验  写 z-index：9999 都是彩笔 学会管理 z-index  position：absolute 使用场景  脱离原来的位置，另起一层，比如对话框的关闭按钮  ​ http://js.
-        </div>
-          <a href="https://wuyining0130.github.io/posts/css%E5%AE%9A%E4%BD%8D/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/" class="color-inherit dim link">
-            CSS布局
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          CSS 布局 布局是什么 把页面分成一块一块，按左中右、上中下等排列
-布局种类   固定宽度布局，一般宽度为 960/1000/1024 px
-  不固定宽度布局，主要靠文档流的原理来布局，文档流本来就是自适应的，不需要增加额外的样式。
-  响应式布局，即 PC 上固定宽度，手机上不固定宽度，说白了就是混合布局。
-  布局的两种思路  从大到小：先定下大局，然后完善每个部分的小布局。 从小到大：先完成小布局，然后组成大布局。  布局需要用到哪些属性 float 布局 步骤  在子元素上加 float:left 和 width(脱离文档流) 在父元素上加.clearfix(重新包裹住子元素)  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 第一次写 CSS 代码，记录一下 reset
-*{margin:0;padding:0;box-sizing:border-box; 经验   有经验者会留一些空间或者最后一个不设 width
-  不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的
-  IE6/7 存在双倍 margin bug,解决方法：
-  针对 IE6/7 把 margin 减半
-        </div>
-          <a href="https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://wuyining0130.github.io/posts/css%E5%AE%9A%E4%BD%8D/" class="link black dim">
+              CSS定位
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://wuyining0130.github.io/posts/css%E5%B8%83%E5%B1%80/" class="link black dim">
+              CSS布局
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/" class="link black dim">

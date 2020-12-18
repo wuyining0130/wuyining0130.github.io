@@ -6,7 +6,55 @@
     <description>Recent content on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 04 Dec 2020 15:13:53 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 00:53:49 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>内存图与JS世界</title>
+      <link>https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/</link>
+      <pubDate>Sat, 19 Dec 2020 00:53:49 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/</guid>
+      <description>操作系统常识 Operating System 操作系统 简称 OS
+runtime 运行时（需要的东西）
+environment 环境，简称 env
+kernel 内核
+compile 编译
+memory 记忆、存储
+一切都运行在内存里 开机
+ 操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
+ 首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
+ 你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例</description>
+    </item>
+    
+    <item>
+      <title>HTTP全解</title>
+      <link>https://wuyining0130.github.io/posts/http%E5%85%A8%E8%A7%A3/</link>
+      <pubDate>Sat, 19 Dec 2020 00:23:10 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/posts/http%E5%85%A8%E8%A7%A3/</guid>
+      <description>WWW 的历史 WWW=URL+HTTP+HTML
+World Wide Web 万维网
+让每个人输入网址就能看到网页
+神说要有网址 李爵士就发明了 URL
+神说要有网页 李爵士就发明了 HTML
+为了让这个系统更加完善 李爵士发明了 HTTP
+HTTP 全称以及定义 HyperText Transfer Protocol
+是一种用于分布式、协作式和超媒体信息系统的应用层协议
+先从 IP 讲起 Internet Protocal 主要约定了两件事
+ 如何定位一台设备 如何封装数据，以跟其他设备交流  只要你处在互联网中，就一定拥有一个独立 IP
+路由器的功能 现在路由器有两个 IP，一个外网 IP 和一个内网 IP。
+内网中的设备可以互相访问，但是不能直接访问外网。
+内网设备要想访问外网，就必须经过路由器中转。
+外网中的设备可以互相访问，但是无法访问你的内网。
+外网设备要想把内容送到内网，也必须通过路由器。
+也就是说内网和外网就像两个隔绝的空间，无法互通，唯一的联通的就是路由器。所以路由器有时候也被叫做“网关&#39;&#39;
+几个特殊的 IP   127.0.0.1 表示自己
+  localhost 通过 hosts 指定为自己
+  0.0.0.0 不表示任何设备
+  端口 port 一台机器可以提供很多服务，每个服务一个号码，这个号码就叫端口号 port
+常用端口  要提供 HTTP 服务最好使用 80 端口 要提供 HTTP 服务最好使用 443 端口 要提供 FTP 服务最好使用 21 端口 一共有 65535 个端口  端口使用规则  0 到 1023 号端口是留给系统使用的 你只有拥有管理员权限之后，才能使用这 1024 个端口 其他端口可以给普通用户使用 http-server 默认使用 8080 端口 一个端口如果被占用，你就只能换一个端口  域名   命令 ping.</description>
+    </item>
+    
     <item>
       <title>CSS动画</title>
       <link>https://wuyining0130.github.io/posts/css%E5%8A%A8%E7%94%BB/</link>
@@ -14,7 +62,7 @@
       
       <guid>https://wuyining0130.github.io/posts/css%E5%8A%A8%E7%94%BB/</guid>
       <description>动画 定义 由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
-概念  帧：每个禁止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&amp;gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
+概念  帧：每个静止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&amp;gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
 渲染性能
 使用 transform 来实现动画
 查看 CSS 各属性触发什么 https://csstriggers.com/

@@ -7,7 +7,7 @@
     <title>CSS动画 | 我的博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="动画 定义 由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
-概念  帧：每个禁止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
+概念  帧：每个静止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
 渲染性能
 使用 transform 来实现动画
 查看 CSS 各属性触发什么 https://csstriggers.com/
@@ -34,7 +34,7 @@
     
     <meta property="og:title" content="CSS动画" />
 <meta property="og:description" content="动画 定义 由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
-概念  帧：每个禁止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
+概念  帧：每个静止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
 渲染性能
 使用 transform 来实现动画
 查看 CSS 各属性触发什么 https://csstriggers.com/
@@ -45,7 +45,7 @@
 <meta property="article:modified_time" content="2020-12-04T15:13:53+08:00" />
 <meta itemprop="name" content="CSS动画">
 <meta itemprop="description" content="动画 定义 由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
-概念  帧：每个禁止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
+概念  帧：每个静止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
 渲染性能
 使用 transform 来实现动画
 查看 CSS 各属性触发什么 https://csstriggers.com/
@@ -60,7 +60,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CSS动画"/>
 <meta name="twitter:description" content="动画 定义 由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
-概念  帧：每个禁止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
+概念  帧：每个静止的概念都叫做帧 播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）  一个最简单的例子 将 div 从左往右移动 原理  每过一段时间（用 setlnterval 做到） 将 div 移动一小段目标 直到移动到目标地点  注意性能  绿色表示重新绘制（repaint）了 CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform 变形 原理  transform：translatrX(0=&gt;300px) 直接修改会被合成，需要等一会修改 transition 过渡属性可以自动脑补中间帧  注意性能  并没有 repaint（重新绘制) 比改 left 性能好  渲染器渲染原理 参考文章 Google 团队写的文章 渲染树构建、布局及其绘制
 渲染性能
 使用 transform 来实现动画
 查看 CSS 各属性触发什么 https://csstriggers.com/
@@ -165,7 +165,7 @@
 <p>由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。</p>
 <h2 id="概念">概念</h2>
 <ul>
-<li>帧：每个禁止的概念都叫做帧</li>
+<li>帧：每个静止的概念都叫做帧</li>
 <li>播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）</li>
 </ul>
 <h2 id="一个最简单的例子">一个最简单的例子</h2>

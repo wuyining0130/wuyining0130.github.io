@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>内存图与JS世界 | 我的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="操作系统常识 Operating System 操作系统 简称 OS
+runtime 运行时（需要的东西）
+environment 环境，简称 env
+kernel 内核
+compile 编译
+memory 记忆、存储
+一切都运行在内存里 开机
+ 操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
+ 首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
+ 你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="内存图与JS世界" />
+<meta property="og:description" content="操作系统常识 Operating System 操作系统 简称 OS
+runtime 运行时（需要的东西）
+environment 环境，简称 env
+kernel 内核
+compile 编译
+memory 记忆、存储
+一切都运行在内存里 开机
+ 操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
+ 首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
+ 你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/" />
+<meta property="article:published_time" content="2020-12-19T00:53:49+08:00" />
+<meta property="article:modified_time" content="2020-12-19T00:53:49+08:00" />
+<meta itemprop="name" content="内存图与JS世界">
+<meta itemprop="description" content="操作系统常识 Operating System 操作系统 简称 OS
+runtime 运行时（需要的东西）
+environment 环境，简称 env
+kernel 内核
+compile 编译
+memory 记忆、存储
+一切都运行在内存里 开机
+ 操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
+ 首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
+ 你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例">
+<meta itemprop="datePublished" content="2020-12-19T00:53:49+08:00" />
+<meta itemprop="dateModified" content="2020-12-19T00:53:49+08:00" />
+<meta itemprop="wordCount" content="348">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="内存图与JS世界"/>
+<meta name="twitter:description" content="操作系统常识 Operating System 操作系统 简称 OS
+runtime 运行时（需要的东西）
+environment 环境，简称 env
+kernel 内核
+compile 编译
+memory 记忆、存储
+一切都运行在内存里 开机
+ 操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
+ 首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
+ 你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/&amp;text=%e5%86%85%e5%ad%98%e5%9b%be%e4%b8%8eJS%e4%b8%96%e7%95%8c" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/&amp;title=%e5%86%85%e5%ad%98%e5%9b%be%e4%b8%8eJS%e4%b8%96%e7%95%8c" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">内存图与JS世界</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-12-19T00:53:49+08:00">December 19, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="操作系统常识">操作系统常识</h1>
+<p>Operating System 操作系统 简称 OS</p>
+<p>runtime 运行时（需要的东西）</p>
+<p>environment 环境，简称 env</p>
+<p>kernel 内核</p>
+<p>compile 编译</p>
+<p>memory 记忆、存储</p>
+<h2 id="一切都运行在内存里">一切都运行在内存里</h2>
+<p>开机</p>
+<ul>
+<li>操作系统在 C 盘里（macOS 的在根目录下多个多个目录里）</li>
+<li>当你按下开机键，主板通电，开始读取固件</li>
+<li>固件就是固定在主板上的存储设备，里面有开机程序</li>
+<li>开机程序会将文件里的操作系统加载到内存中运行</li>
+</ul>
+<p>操作系统（以 Linux 为例）</p>
+<ul>
+<li>首先加载操作系统内核</li>
+<li>然后启动初始化进程，编号为 1，每个进程都有编号</li>
+<li>启动系统服务：文件、安全、联网</li>
+<li>等待用户登录：输入密码登录/ssh 登录</li>
+<li>登录后，运行 shell，用户就可以和操作系统对话了</li>
+<li>bash 是一种 shell，图形化界面可认为是一种 shell</li>
+</ul>
+<p>打开浏览器</p>
+<ul>
+<li>你双击 Chrome 图标，就会运行 chrome.exe 文件</li>
+<li>开启 Chrome 进程，作为主进程</li>
+<li>主进程会开启一些辅助进程，如网络服务、GPU 加速</li>
+<li>你每新建一个网页，就有可能会开启一个子进程</li>
+</ul>
+<p>浏览器的功能</p>
+<ul>
+<li>发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等</li>
+<li>功能模块：用户界面、渲染引擎、JS 引擎、存储等</li>
+<li>上面功能模块一般各处于不同的线程（比进程更小）</li>
+<li>如果进程是车间，那么线程就是车间里的流水线</li>
+</ul>
+<h1 id="js-引擎">JS 引擎</h1>
+<p>JS 引擎举例</p>
+<ul>
+<li>Chrome 用的是 V8 引擎，C++编写</li>
+<li>网景用的是 SpoderMonkey，后被 Firefox 使用，C++</li>
+<li>Safari 用的是 JavaScriptCore</li>
+<li>IE 用的是 Chakra(JScript9)</li>
+<li>Edge 用的是 Chakra(JavaScript)</li>
+<li>Node.js 用的是 V8 引擎</li>
+</ul>
+<p>主要功能</p>
+<ul>
+<li>编译：把 JS 代码翻译为机器能执行的字节码和机器码</li>
+<li>优化：改写代码，使其更高效</li>
+<li>执行：执行上面的字节码或者机器码</li>
+<li>垃圾回收：把 JS 用完的内存回收，方便之后再次使用</li>
+</ul>
+<h3 id="执行-js-代码">执行 JS 代码</h3>
+<p>准备工作</p>
+<ul>
+<li>提供 API：window/document/setTimeout 这些都不是 JS 自身具备的功能，我们讲这些功能称为运行环境 runtime env，一旦把 JS 放进页面，就开始执行 JS</li>
+<li>JS 代码在内存中运行</li>
+</ul>
+<h1 id="内存图">内存图</h1>
+<p><img src="/%E7%93%9C%E5%88%86%E5%86%85%E5%AD%98.PNG" alt="image"></p>
+<h2 id="红色区域">红色区域</h2>
+<p>作用</p>
+<ul>
+<li>红色专门用来存放数据，我们目前只研究该区域</li>
+<li>红色区域并不存变量名，变量名在[不知什么区]</li>
+<li>每种浏览器的分配规则并不一样</li>
+<li>上图的区域并不完整，还缺少[调用栈]、[任务队列]等区域</li>
+</ul>
+<p>Stack 和 Heap</p>
+<ul>
+<li>红色区域分为 Stack 栈和 Heap 堆</li>
+<li>Stack 区特点：每个数据顺序存放</li>
+<li>Heap 区特点：每个数据随机存放</li>
+</ul>
+<h2 id="stach-和-heap-举例">Stach 和 Heap 举例</h2>
+<p>代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span><span style="color:#f92672">=</span><span style="color:#a6e22e">a</span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">person</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">name</span>;<span style="color:#e6db74">&#39;frank&#39;</span>,<span style="color:#a6e22e">child</span>;{<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;jack&#39;</span>}}
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">person2</span><span style="color:#f92672">=</span><span style="color:#a6e22e">person</span>
+</code></pre></div><p>规律</p>
+<ul>
+<li>数据分为两种：非对象和对象</li>
+<li>非对象都存在 Stack</li>
+<li>对象都存在 Heap</li>
+<li>=号总是会把右边的东西复制到左边(不存在什么传值和传址)</li>
+</ul>
+<h3 id="不会画内存图的人才需要区分值和地址">不会画内存图的人才需要区分值和地址</h3>
+<h3 id="对象被篡改了">对象被篡改了</h3>
+<p>代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">person</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;frank&#34;</span> };
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">person2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">person</span>;
+<span style="color:#a6e22e">person2</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ryan&#34;</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">name</span>); <span style="color:#75715e">//&#39;ryan&#39;
+</span></code></pre></div><h1 id="神说要有光于是就有了光">神说要有光，于是就有了光</h1>
+<ul>
+<li>JS 开发者说要有 window，于是就有了 window（浏览器提供）</li>
+<li>要有 console，于是就有了 console，并且挂到 window 上</li>
+<li>要有对象，于是就有了 Object,并且挂到 window 上，<code>var person = {}等价于var person = new Object()</code></li>
+<li>要有数组（一种特殊的对象），于是就有了 Array，并且挂到 window 上，var a = new Array（1，2，3）</li>
+<li>要有函数（一种特殊的对象），于是就有了 Function,并且挂到 window 中，function f(){}等价于 var f = new Function()</li>
+</ul>
+<p>怎么什么都可以挂在 window 上？因为方便，挂在 window 上的东西可以在任何地方直接用</p>
+<h2 id="把-window-用内存图画出来">把 window 用内存图画出来</h2>
+<p><img src="/window%E5%86%85%E5%AD%98%E5%9B%BE.PNG" alt="image"></p>
+<h2 id="更简单的画法">更简单的画法</h2>
+<p><img src="/window%E5%86%85%E5%AD%98%E5%9B%BE2.PNG" alt="image"></p>
+<h2 id="细节">细节</h2>
+<p>关于 window</p>
+<ul>
+<li>window 变量和 window 对象是两个东西</li>
+<li>window 变量是一个容器，存放 window 对象的地址</li>
+<li>window 对象是 Heap 里的一坨数据</li>
+</ul>
+<p>同理</p>
+<ul>
+<li>console 和 console 对象不是一个东西</li>
+<li>Object 和 Object 函数对象不是同一个东西</li>
+<li>前者是内存地址，后者是一坨内存</li>
+</ul>
+<h3 id="原型链">原型链</h3>
+<p>图里的 prototype 是干什么用的</p>
+<p>打印出来看看</p>
+<p>console.dir(window.Object.prototype)</p>
+<p>当然，window.可以省略</p>
+<h3 id="问大家一个问题">问大家一个问题</h3>
+<p>代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {};
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">toString</span>();
+</code></pre></div><p>为什么不报错？为什么可以运行？</p>
+<p>画图给你解释</p>
+<ul>
+<li>obj 有一个隐藏属性</li>
+<li>隐藏属性存储了 Object.prototype 对象的地址</li>
+<li>obj.toString()发现 obj 上没有 toString</li>
+<li>就去隐藏属性对应的对象里找</li>
+<li>于是就找到了 Object.prototype.toString</li>
+</ul>
+<h3 id="再问大家一个问题">再问大家一个问题</h3>
+<p>代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj2</span> <span style="color:#f92672">=</span> {};
+<span style="color:#a6e22e">obj2</span>.<span style="color:#a6e22e">toString</span>();
+<span style="color:#a6e22e">obj和obj2有什么联系</span>;
+</code></pre></div><p>相同点：都可以调用.toString()</p>
+<p>不同点：地址不同 obj!==obj2，可以拥有不同的属性</p>
+<h3 id="xxxprototype-存储了-xxx-对象的共同属性这就是原型">XXX.prototype 存储了 XXX 对象的共同属性，这就是原型</h3>
+<p>原型有什么好处？没有原型会怎样？</p>
+<p>如果没有原型声明一个对象你需要写：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+
+<span style="color:#a6e22e">toString</span><span style="color:#f92672">:</span> window.Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>,
+
+<span style="color:#a6e22e">hasOwnPropertyOf</span><span style="color:#f92672">:</span>window.Object<span style="color:#960050;background-color:#1e0010">……</span>
+
+}
+
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">toString</span>()
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj2</span> <span style="color:#f92672">=</span> {
+
+<span style="color:#a6e22e">toString</span><span style="color:#f92672">:</span>window.Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>,
+
+<span style="color:#a6e22e">hasOwnPropertyOf</span><span style="color:#f92672">:</span>window.Object<span style="color:#960050;background-color:#1e0010">……</span>
+
+}
+
+<span style="color:#a6e22e">obj2</span>.<span style="color:#a6e22e">toString</span>()
+</code></pre></div><h3 id="原型让你无需重复声明共有属性">原型让你无需重复声明共有属性</h3>
+<p>省代码，省内存</p>
+<h3 id="每个对象都有一个隐藏属性">每个对象都有一个隐藏属性</h3>
+<p>指向原型（对象）</p>
+<h3 id="如果没有这个隐藏属性">如果没有这个隐藏属性</h3>
+<p>那 obj 会不知道自己的共有属性在哪</p>
+<h3 id="这个隐藏属性叫什么">这个隐藏属性叫什么</h3>
+<p><code>__proto__</code></p>
+<h3 id="prototype-和__proto__区别是什么">prototype 和<code>__proto__</code>区别是什么</h3>
+<p>他们都存着原型的地址，只不过 prototype 挂在函数上，<code>__proto__</code>挂在每个新生成的对象上</p>
+<h3 id="问大家一个问题-1">问大家一个问题</h3>
+<p>代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>];
+
+<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;-&#34;</span>);
+</code></pre></div><p>为什么不报错，为什么可以运行</p>
+<p>画图给你解释</p>
+<ul>
+<li>arr 有一个隐藏属性</li>
+<li>隐藏属性存储了 Array.prototype 对象的地址</li>
+<li>arr.join()发现 arr 上没有 join</li>
+<li>就去隐藏属性对应的对象里找</li>
+<li>于是就找到了 Array.prototype.join</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://wuyining0130.github.io/" >
+    &copy;  我的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
