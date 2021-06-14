@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Tue, 29 Dec 2020 05:10:19 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Jun 2021 15:31:50 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>初探CSS</title>
       <link>https://wuyining0130.github.io/posts/%E5%88%9D%E6%8E%A2css/</link>
@@ -124,35 +124,21 @@ HTTP 全称以及定义 HyperText Transfer Protocol
       <pubDate>Sat, 19 Dec 2020 00:53:49 +0800</pubDate>
       
       <guid>https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/</guid>
-      <description>操作系统常识 Operating System 操作系统 简称 OS
-runtime 运行时（需要的东西）
-environment 环境，简称 env
-kernel 内核
-compile 编译
-memory 记忆、存储
-一切都运行在内存里 开机
+      <description>一切都运行在内存里 开机
  操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
  首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
  你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
- 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例</description>
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例
+ Chrome 用的是 V8 引擎，C++编写 网景用的是 SpoderMonkey，后被 Firefox 使用，C++ Safari 用的是 JavaScriptCore IE 用的是 Chakra(JScript9) Edge 用的是 Chakra(JavaScript) Node.</description>
     </item>
     
     <item>
-      <title>出大事了</title>
-      <link>https://wuyining0130.github.io/posts/%E5%87%BA%E5%A4%A7%E4%BA%8B%E4%BA%86/</link>
-      <pubDate>Tue, 29 Dec 2020 05:10:19 +0800</pubDate>
+      <title>计算机网络</title>
+      <link>https://wuyining0130.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Sat, 05 Jun 2021 15:31:50 +0800</pubDate>
       
-      <guid>https://wuyining0130.github.io/posts/%E5%87%BA%E5%A4%A7%E4%BA%8B%E4%BA%86/</guid>
-      <description>难道要重新建一次站点了吗</description>
-    </item>
-    
-    <item>
-      <title>一些问题</title>
-      <link>https://wuyining0130.github.io/posts/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Tue, 29 Dec 2020 04:47:17 +0800</pubDate>
-      
-      <guid>https://wuyining0130.github.io/posts/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</guid>
-      <description>最近解决了困扰我已久的一些问题</description>
+      <guid>https://wuyining0130.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
     </item>
     
   </channel>
