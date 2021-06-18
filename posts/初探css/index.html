@@ -50,7 +50,7 @@
         <div class="row justify-content-center">
             <div class="col-auto">
                 <a href="https://wuyining0130.github.io/">
-                    <h1 class="name">Hugo Tanka Theme</h1>
+                    <h1 class="name">人间万事塞翁马，只生欢喜不胜愁</h1>
                 </a>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/nanxstats">
+                    <a class="nav-link" href="https://github.com/wuyining0130">
                         
                         GitHub
                     </a>
@@ -105,9 +105,10 @@
                     <h1 class="mx-0 mx-md-4">初探CSS</h1>
                     <div class="markdown">
                         
-    <h1 id="css的历史">css的历史</h1>
+    <br/>
+<h2 id="css的历史">CSS的历史</h2>
 <p>李爵士的挪威同事赖先生在 1994 首先提出 css，倡议了 web 网页应该使用通用字体格式和浏览器可以支持 video 标签，微软的 ie 常常成为他的批评对象，他也是 web 打印概念的倡导者，用 html 和 css 写书</p>
-<h2 id="css-的牛逼之处">css 的牛逼之处</h2>
+<h2 id="css的牛逼之处">CSS的牛逼之处</h2>
 <p>css 的全称叫做层叠样式表</p>
 <h3 id="样式层叠">样式层叠</h3>
 <p>可以多次对同一选择器进行样式声明</p>
@@ -118,10 +119,10 @@
 <p>这些特性使得 css 极度灵活，也为后来 css 被吐槽留下了隐患。</p>
 <p><em>目前世界上使用最广泛的版本是 css2.1</em></p>
 <p>caniuse.com 网站能帮你知道那些浏览器支持哪些特性(社区的力量)</p>
-<h1 id="css-是艺术">css 是艺术</h1>
+<h2 id="css是艺术">CSS是艺术</h2>
 <p>不要问为什么 直接记住结果 所见即所学</p>
-<h1 id="体系化学习">体系化学习</h1>
-<h2 id="学一门语言必须学会什么">学一门语言必须学会什么</h2>
+<h2 id="体系化学习">体系化学习</h2>
+<h4 id="学一门语言必须学会什么">学一门语言必须学会什么</h4>
 <p>语法（怎么写代码）</p>
 <p>如何调试（怎么知道自己代码错了）</p>
 <p>在哪查资料（其实就是为了抄代码）</p>
@@ -163,14 +164,26 @@
 <p>border 没出现说明选择器错了或者语法崩了</p>
 <p>border 出现了检查边界是否符合预期</p>
 <p>bug 解决了才可以把 border 删掉</p>
-<h1 id="文档流">文档流</h1>
-<h2 id="几个重要的概念">几个重要的概念</h2>
+<h2 id="文档流">文档流</h2>
+<h3 id="几个重要的概念">几个重要的概念</h3>
+<ol>
+<li>
 <p>文档流 normal flow</p>
+</li>
+<li>
 <p>块、内联、内联块</p>
+</li>
+<li>
 <p>margin 合并</p>
+</li>
+<li>
 <p>两种盒模型（border-box 更符合人类思维）</p>
+</li>
+<li>
 <p>元素已经不分外联元素和块级元素，所有元素都可以是外联元素和块级元素。</p>
-<p><strong>不要在 inline 元素里写 block 元素</strong></p>
+</li>
+</ol>
+<p><strong>注意：不要在 inline 元素里写 block 元素</strong></p>
 <h2 id="流动方向">流动方向</h2>
 <p>inline 元素从左到右，到达最右边才会换行</p>
 <p>block 元素从上到下，每一个都另起一行</p>
@@ -200,17 +213,20 @@
 <p>float</p>
 <p>position：absolute/fixed</p>
 <p>不用上面属性就不会脱离</p>
-<h1 id="盒模型">盒模型</h1>
-<p>content-box 和 border-box</p>
-<p>前者内容就是盒子的边界，后者的边框才是盒子的边界
-<img src="https://i.loli.net/2020/11/18/xbUckwJmz85afoZ.png" alt="盒模型_00.png"></p>
+<h2 id="盒模型">盒模型</h2>
+<p>content-box 和 border-box
+<figure>
+    <img src="https://i.loli.net/2020/11/18/xbUckwJmz85afoZ.png" width="100%"/> 
+</figure>
+
+前者内容就是盒子的边界，后者的边框才是盒子的边界</p>
 <h2 id="margin-合并">margin 合并</h2>
 <p>父子/兄弟</p>
 <p>只有上下重叠，左右不重叠</p>
 <h3 id="取消合并">取消合并</h3>
 <p>父子合并用 padding/border/overflow:hidden 挡住或者 display:flex</p>
 <p>兄弟合并是符合预期的，可以用 inline-block 消除</p>
-<h1 id="颜色">颜色</h1>
+<h2 id="颜色">颜色</h2>
 <p>十六进制颜色码#FF6600 或者#F60</p>
 <p>RGBA 颜色 rgb(0,0,0)或者 rgba(0,0,0,1)</p>
 <p>hsl 颜色 hsl(360,100%,100%)</p>

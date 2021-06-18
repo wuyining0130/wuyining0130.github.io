@@ -50,7 +50,7 @@
         <div class="row justify-content-center">
             <div class="col-auto">
                 <a href="https://wuyining0130.github.io/">
-                    <h1 class="name">Hugo Tanka Theme</h1>
+                    <h1 class="name">人间万事塞翁马，只生欢喜不胜愁</h1>
                 </a>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/nanxstats">
+                    <a class="nav-link" href="https://github.com/wuyining0130">
                         
                         GitHub
                     </a>
@@ -105,16 +105,15 @@
                     <h1 class="mx-0 mx-md-4">CSS动画</h1>
                     <div class="markdown">
                         
-    <h1 id="动画">动画</h1>
-<h2 id="定义">定义</h2>
+    <br/>
+<h2 id="动画定义">动画定义</h2>
 <p>由许多静止的画面（帧）以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。</p>
-<h2 id="概念">概念</h2>
+<h2 id="一些概念">一些概念</h2>
 <ul>
 <li>帧：每个静止的概念都叫做帧</li>
 <li>播放速度：每秒 24 帧(影视)或者每秒 30 帧（游戏）</li>
 </ul>
-<h2 id="一个最简单的例子">一个最简单的例子</h2>
-<h3 id="将-div-从左往右移动httpjsjirengucomtupezujuho1edithtmlcssjsoutput"><a href="http://js.jirengu.com/tupezujuho/1/edit?html,css,js,output">将 div 从左往右移动</a></h3>
+<h2 id="一个最简单的例子将-div-从左往右移动httpjsjirengucomtupezujuho1edithtmlcssjsoutput">一个最简单的例子：<a href="http://js.jirengu.com/tupezujuho/1/edit?html,css,js,output">将 div 从左往右移动</a></h2>
 <h3 id="原理">原理</h3>
 <ul>
 <li>每过一段时间（用 setlnterval 做到）</li>
@@ -127,9 +126,8 @@
 <li>CSS 渲染过程依次包含布局、绘制、合成</li>
 <li>其中布局和绘制有可能被省略</li>
 </ul>
-<h1 id="前端高手不用-left-做动画">前端高手不用 left 做动画</h1>
-<h2 id="用-transform-变形">用 transform 变形</h2>
-<h2 id="原理-1">原理</h2>
+<h2 id="前端高手不用-left-做动画-用-transform-变形">前端高手不用 left 做动画 用 transform 变形</h2>
+<h3 id="原理-1">原理</h3>
 <ul>
 <li>transform：translatrX(0=&gt;300px)</li>
 <li>直接修改会被合成，需要等一会修改</li>
@@ -140,9 +138,8 @@
 <li>并没有 repaint（重新绘制)</li>
 <li>比改 left 性能好</li>
 </ul>
-<h1 id="渲染器渲染原理">渲染器渲染原理</h1>
-<h2 id="参考文章">参考文章</h2>
-<h3 id="google-团队写的文章">Google 团队写的文章</h3>
+<h2 id="渲染器渲染原理">渲染器渲染原理</h2>
+<h3 id="参考google-团队写的文章">参考Google 团队写的文章</h3>
 <p><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及其绘制</a></p>
 <p><a href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></p>
 <p><a href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">使用 transform 来实现动画</a></p>
@@ -158,7 +155,10 @@
 <li>Compose 合成（根据层叠关系展示画面）</li>
 </ol>
 <h1 id="三棵树">三棵树</h1>
-<p><img src="https://wuyining0130.github.io/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png" alt="image"></p>
+<figure>
+    <img src="https://wuyining0130.github.io/%e6%b5%8f%e8%a7%88%e5%99%a8%e6%b8%b2%e6%9f%93%e8%bf%87%e7%a8%8b.png" width="100%"/> 
+</figure>
+
 <h1 id="如何更新样式">如何更新样式</h1>
 <h2 id="一般我们用-js-来更新样式">一般我们用 JS 来更新样式</h2>
 <ul>
@@ -168,8 +168,11 @@
 <li>比如 div.remove()直接删掉节点</li>
 </ul>
 <p>加样式不如加类，因为一个类里有很多样式</p>
-<h1 id="三种更新方式">三种更新方式</h1>
-<p><img src="https://wuyining0130.github.io/%E4%B8%89%E7%A7%8D%E6%9B%B4%E6%96%B0%E6%96%B9%E5%BC%8F.png" alt="image"></p>
+<h2 id="三种更新方式">三种更新方式</h2>
+<figure>
+    <img src="https://wuyining0130.github.io/%e4%b8%89%e7%a7%8d%e6%9b%b4%e6%96%b0%e6%96%b9%e5%bc%8f.png" width="100%"/> 
+</figure>
+
 <ol>
 <li>
 <p>全走</p>
@@ -184,22 +187,22 @@
 <p>改变 transform，只需 composite，注意必须全屏查看效果，再 iframe 里看有问题</p>
 </li>
 </ol>
-<h1 id="css-动画优化">CSS 动画优化</h1>
-<h2 id="没什么技术含量">没什么技术含量</h2>
+<h2 id="css-动画优化">CSS 动画优化</h2>
+<h3 id="没什么技术含量">没什么技术含量</h3>
 <p>答案都在<a href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">Google 文章</a>里</p>
-<h2 id="js-优化">JS 优化</h2>
+<h3 id="js-优化">JS 优化</h3>
 <p>使用 requestAnimationFrame 代替 setTinmeout 或 setlnerval</p>
-<h2 id="css-优化">CSS 优化</h2>
+<h3 id="css-优化">CSS 优化</h3>
 <p>使用 will-change 或 translate</p>
-<h1 id="transform">transform</h1>
-<h2 id="四个常用功能">四个常用功能</h2>
+<h2 id="transform">transform</h2>
+<h3 id="四个常用功能">四个常用功能</h3>
 <ul>
 <li>位移 translate</li>
 <li>缩放 scale</li>
 <li>旋转 rotate</li>
 <li>倾斜 skew</li>
 </ul>
-<h2 id="经验">经验</h2>
+<h3 id="经验">经验</h3>
 <ul>
 <li>一般都需要配合 transition</li>
 <li>inline 元素不支持 transform，需要先变成 block</li>
@@ -299,17 +302,17 @@
 </code></pre></div></li>
 </ul>
 <p><a href="http://js.jirengu.com/yufecapeyi/1/edit?html,css,output">JS Bin 示例</a></p>
-<h1 id="实践">实践</h1>
-<h2 id="跳动的心httpjsjirengucomjufaziyazo1edithtmlcssoutput"><a href="http://js.jirengu.com/jufaziyazo/1/edit?html,css,output">跳动的心</a></h2>
+<h2 id="实践">实践</h2>
+<p><a href="http://js.jirengu.com/jufaziyazo/1/edit?html,css,output">跳动的心</a></p>
 <h2 id="心得">心得</h2>
 <ul>
 <li>CSS 需要你有想象力，而不是逻辑</li>
 <li>CSS 给出的属性都很简单，但是可以组合得很复杂</li>
 </ul>
-<h1 id="transition-过渡">transition 过渡</h1>
-<h2 id="作用">作用</h2>
+<h2 id="transition-过渡">transition 过渡</h2>
+<h3 id="作用">作用</h3>
 <p>补充中间帧</p>
-<h2 id="语法">语法</h2>
+<h3 id="语法">语法</h3>
 <ul>
 <li>transition：属性名 时长 过渡方式 延迟</li>
 <li>transition：left 200ms linear</li>
@@ -320,13 +323,13 @@
 <li>过渡方式有：linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier|step-start|step-end|steps 具体含义要靠数学知识</li>
 </ul>
 <h2 id="注意">注意</h2>
-<h3 id="并不是所有属性都能过渡">并不是所有属性都能过渡</h3>
+<h3 id="1并不是所有属性都能过渡">1.并不是所有属性都能过渡</h3>
 <ul>
 <li>display:none=&gt;block 没法过渡，一般改成 visbility:hidden=&gt;visible</li>
 <li>background 颜色可以过渡</li>
 <li>opacity 可以过渡但是不推荐</li>
 </ul>
-<h3 id="过渡必须要有起始">过渡必须要有起始</h3>
+<h3 id="2过渡必须要有起始">2.过渡必须要有起始</h3>
 <p>一般只有一次动画，或者两次，比如 hover 和非 hover 状态的过渡</p>
 <h3 id="如果除了起始还有中间点">如果除了起始，还有中间点</h3>
 <h4 id="两种办法">两种办法</h4>
@@ -344,13 +347,12 @@
 <li>添加动画</li>
 </ul>
 <p><a href="http://js.jirengu.com/tawisebipo/1/edit?html,css,js,output">JSBin 示例</a></p>
-<p>###提问</p>
-<h4 id="如何让动画停在最后一帧">如何让动画停在最后一帧</h4>
+<h3 id="提问如何让动画停在最后一帧">提问：如何让动画停在最后一帧</h3>
 <ul>
 <li>搜索 css animation stop at end</li>
 <li>加个 forwards</li>
 </ul>
-<h2 id="keyframes-完整语法">@keyframes 完整语法</h2>
+<h3 id="keyframes-完整语法">@keyframes 完整语法</h3>
 <h4 id="标准写法">标准写法</h4>
 <ul>
 <li>搜索 MDN</li>
@@ -382,8 +384,8 @@
     <span style="color:#00f">left</span>: 100<span style="color:#2b91af">%</span>;
   }
 }
-</code></pre></div><h1 id="animation">animation</h1>
-<h2 id="缩写语法">缩写语法</h2>
+</code></pre></div><h2 id="animation">animation</h2>
+<h3 id="缩写语法">缩写语法</h3>
 <p>时长/过渡方式/延迟/次数/方向/填充模式/是否暂停/动画名；</p>
 <p>时长：1s 或者 1000ms</p>
 <p>过渡方式：跟 transtion 取值一样 如 linear</p>
@@ -391,9 +393,9 @@
 <p>方向：reverse/alternate/alternate-reverse</p>
 <p>填充模式：none/forwards/backwards/both</p>
 <p>是否暂停：paused/running</p>
-<h2 id="实践-1">实践</h2>
+<h3 id="实践-1">实践</h3>
 <p><a href="http://js.jirengu.com/xixogawaji/1/edit?html,css,output">跳动的心</a></p>
-<h1 id="小技巧">小技巧</h1>
+<h3 id="小技巧">小技巧</h3>
 <p>0.5s 可以直接写成.5s</p>
 
 
