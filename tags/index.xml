@@ -5,6 +5,43 @@
     <link>https://wuyining0130.github.io/tags/</link>
     <description>Recent content in Tags on 前端笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://wuyining0130.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Jun 2021 15:31:50 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo</title>
+      <link>https://wuyining0130.github.io/tags/hugo/</link>
+      <pubDate>Sat, 05 Jun 2021 15:31:50 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>js</title>
+      <link>https://wuyining0130.github.io/tags/js/</link>
+      <pubDate>Sat, 19 Dec 2020 00:53:49 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://wuyining0130.github.io/tags/http/</link>
+      <pubDate>Sat, 19 Dec 2020 00:23:10 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>https://wuyining0130.github.io/tags/css/</link>
+      <pubDate>Fri, 04 Dec 2020 15:13:53 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

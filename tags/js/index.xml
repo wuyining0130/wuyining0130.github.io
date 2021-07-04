@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>js on 前端笔记</title>
+    <link>https://wuyining0130.github.io/tags/js/</link>
+    <description>Recent content in js on 前端笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 19 Dec 2020 00:53:49 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>内存图与JS世界</title>
+      <link>https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/</link>
+      <pubDate>Sat, 19 Dec 2020 00:53:49 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/posts/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E4%B8%96%E7%95%8C/</guid>
+      <description>一切都运行在内存里 开机
+ 操作系统在 C 盘里（macOS 的在根目录下多个多个目录里） 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统（以 Linux 为例）
+ 首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务：文件、安全、联网 等待用户登录：输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器
+ 你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能
+ 发起请求，下载 HTML，解析 HTML,下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等 功能模块：用户界面、渲染引擎、JS 引擎、存储等 上面功能模块一般各处于不同的线程（比进程更小） 如果进程是车间，那么线程就是车间里的流水线  JS 引擎 JS 引擎举例
+ Chrome 用的是 V8 引擎，C++编写 网景用的是 SpoderMonkey，后被 Firefox 使用，C++ Safari 用的是 JavaScriptCore IE 用的是 Chakra(JScript9) Edge 用的是 Chakra(JavaScript) Node.</description>
+    </item>
+    
+  </channel>
+</rss>

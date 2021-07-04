@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http on 前端笔记</title>
+    <link>https://wuyining0130.github.io/tags/http/</link>
+    <description>Recent content in http on 前端笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 19 Dec 2020 00:23:10 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP全解</title>
+      <link>https://wuyining0130.github.io/posts/http%E5%85%A8%E8%A7%A3/</link>
+      <pubDate>Sat, 19 Dec 2020 00:23:10 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/posts/http%E5%85%A8%E8%A7%A3/</guid>
+      <description>WWW 的历史   WWW=URL+HTTP+HTML
+  World Wide Web 万维网
+  让每个人输入网址就能看到网页
+  神说要有网址 李爵士就发明了 URL
+  神说要有网页 李爵士就发明了 HTML
+  为了让这个系统更加完善 李爵士发明了 HTTP
+  HTTP 全称以及定义   全称：HyperText Transfer Protocol
+  定义：是一种用于分布式、协作式和超媒体信息系统的应用层协议
+  先从 IP 讲起 Internet Protocal 主要约定了两件事
+ 如何定位一台设备 如何封装数据，以跟其他设备交流  只要你处在互联网中，就一定拥有一个独立 IP
+路由器的功能   现在路由器有两个 IP，一个外网 IP 和一个内网 IP。
+内网中的设备可以互相访问，但是不能直接访问外网。
+内网设备要想访问外网，就必须经过路由器中转。
+外网中的设备可以互相访问，但是无法访问你的内网。
+外网设备要想把内容送到内网，也必须通过路由器。
+也就是说内网和外网就像两个隔绝的空间，无法互通，唯一的联通的就是路由器。所以路由器有时候也被叫做“网关&#39;&#39;
+几个特殊的 IP   127.</description>
+    </item>
+    
+  </channel>
+</rss>
