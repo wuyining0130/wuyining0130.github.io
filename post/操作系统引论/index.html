@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>操作系统引论 - 人生万事塞翁马 只生欢喜不生愁</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wuyining" /><meta name="description" content="1.设计现代OS的主要目标是什么 方便性、有效性、可扩充性和开放性 2.OS的作用可表现在哪几个方面 OS作为用户与计算机硬件系统之间的接口 OS作" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="https://wuyining0130.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="操作系统引论" />
+<meta property="og:description" content="1.设计现代OS的主要目标是什么 方便性、有效性、可扩充性和开放性 2.OS的作用可表现在哪几个方面 OS作为用户与计算机硬件系统之间的接口 OS作" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/" />
+<meta property="article:published_time" content="2021-08-10T13:19:45+08:00" />
+<meta property="article:modified_time" content="2021-08-10T13:19:45+08:00" />
+<meta itemprop="name" content="操作系统引论">
+<meta itemprop="description" content="1.设计现代OS的主要目标是什么 方便性、有效性、可扩充性和开放性 2.OS的作用可表现在哪几个方面 OS作为用户与计算机硬件系统之间的接口 OS作">
+<meta itemprop="datePublished" content="2021-08-10T13:19:45+08:00" />
+<meta itemprop="dateModified" content="2021-08-10T13:19:45+08:00" />
+<meta itemprop="wordCount" content="3610">
+
+
+
+<meta itemprop="keywords" content="操作系统," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="操作系统引论"/>
+<meta name="twitter:description" content="1.设计现代OS的主要目标是什么 方便性、有效性、可扩充性和开放性 2.OS的作用可表现在哪几个方面 OS作为用户与计算机硬件系统之间的接口 OS作"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">操作系统引论</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-10 </span>
+        <div class="post-category">
+            <a href="/categories/408%E7%AC%94%E8%AE%B0/"> 408笔记 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1设计现代os的主要目标是什么">1.设计现代OS的主要目标是什么</a></li>
+            <li><a href="#2os的作用可表现在哪几个方面">2.OS的作用可表现在哪几个方面</a></li>
+            <li><a href="#3为什么说操作系统实现了对计算机资源的抽象">3.为什么说操作系统实现了对计算机资源的抽象</a></li>
+            <li><a href="#4试说明推动多道批处理系统形成和发展的主要动力是什么">4.试说明推动多道批处理系统形成和发展的主要动力是什么</a></li>
+            <li><a href="#5何谓脱机io和联机">5.何谓脱机I/O和联机</a></li>
+            <li><a href="#6试说明推动分时系统形成和发展的主要动力是什么">6.试说明推动分时系统形成和发展的主要动力是什么</a></li>
+            <li><a href="#7实现分时系统的关键问题是什么-应该如何解决">7.实现分时系统的关键问题是什么 应该如何解决</a></li>
+            <li><a href="#8为什么要引入实时操作系统">8.为什么要引入实时操作系统</a></li>
+            <li><a href="#9什么是硬实时任务和软实时任务-试举例说明">9.什么是硬实时任务和软实时任务 试举例说明</a></li>
+            <li><a href="#10试从交互性及时性以及可靠性方面将分时系统与实时系统进行比较">10.试从交互性、及时性以及可靠性方面将分时系统与实时系统进行比较</a></li>
+            <li><a href="#11os有几大特征-其最基本的特征是什么">11.OS有几大特征 其最基本的特征是什么</a></li>
+            <li><a href="#12在多道程序技术的os环境下的资源共享与一般情况下的资源共享有何不同-独占资源应采取何种共享方式">12.在多道程序技术的OS环境下的资源共享与一般情况下的资源共享有何不同 独占资源应采取何种共享方式</a></li>
+            <li><a href="#13什么是时分复用技术-举例说明它能提高资源利用率的根本原因是什么">13.什么是时分复用技术 举例说明它能提高资源利用率的根本原因是什么</a></li>
+            <li><a href="#14是什么原因使操作系统具有异步性特征">14.是什么原因使操作系统具有异步性特征</a></li>
+            <li><a href="#15处理机管理有哪些主要功能-其主要任务是什么">15.处理机管理有哪些主要功能 其主要任务是什么</a></li>
+            <li><a href="#16内存管理管理有哪些主要功能-其主要任务是什么">16.内存管理管理有哪些主要功能 其主要任务是什么</a></li>
+            <li><a href="#17设备管理有哪些主要功能-其主要任务是什么">17.设备管理有哪些主要功能 其主要任务是什么</a></li>
+            <li><a href="#18文件管理有哪些主要功能-其主要任务是什么">18.文件管理有哪些主要功能 其主要任务是什么</a></li>
+            <li><a href="#19试说明推动传统os演变为现代os的主要因素是什么">19.试说明推动传统OS演变为现代OS的主要因素是什么</a></li>
+            <li><a href="#20什么是微内核os">20.什么是微内核OS</a></li>
+            <li><a href="#21微内核操作系统具有哪些优点-它为何能有这些优点">21.微内核操作系统具有哪些优点 它为何能有这些优点</a></li>
+            <li><a href="#22现代操作系统较之传统操作系统又增加了哪些功能和特征">22.现代操作系统较之传统操作系统又增加了哪些功能和特征</a></li>
+            <li><a href="#23在微内核os中-为什么要采用客户服务器模式">23.在微内核OS中 为什么要采用客户/服务器模式</a></li>
+            <li><a href="#24在基于微内核结构的os中-应用了哪些新技术">24.在基于微内核结构的OS中 应用了哪些新技术</a></li>
+            <li><a href="#25何谓微内核技术-在微内核中通常提供了哪些功能">25.何谓微内核技术 在微内核中通常提供了哪些功能</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="1设计现代os的主要目标是什么">1.设计现代OS的主要目标是什么</h3>
+<p>方便性、有效性、可扩充性和开放性</p>
+<h3 id="2os的作用可表现在哪几个方面">2.OS的作用可表现在哪几个方面</h3>
+<ol>
+<li>OS作为用户与计算机硬件系统之间的接口</li>
+<li>OS作为计算机系统资源的管理者</li>
+<li>OS实现了对计算机资源的抽象</li>
+</ol>
+<h3 id="3为什么说操作系统实现了对计算机资源的抽象">3.为什么说操作系统实现了对计算机资源的抽象</h3>
+<p>对于一台完全无软件的计算机系统，它向用户提供的仅是硬件接口，为了方便用户使用I/O设备，人们在裸机上覆盖一层I/O设备管理软件，由它来实现对I/O设备的细节，并向上将I/O设备抽象为一组数据结构以及一组I/O操作命令，这样用户即可利用这些数据结构及操作命令来进行数据输入或输出，无需了解物理接口实现的细节，从而使用户更容易地使用计算机硬件资源。I/O设备管理软件实现了对计算机硬件操作的第一个层次的抽象。</p>
+<p>同理，为了方便用户使用文件系统，又可在第一层软件是（I/O管理软件）上再覆盖一层用于文件管理的软件，由它来实现对文件操作的细节，并向上层提供一组实现对文件进行存取操作的数据结构及命令。这样，用户可利用该软件提供的数据结构及命令对文件进行存取。依次类推，如果在文件管理软件上再覆盖一层面向用户的窗口软件，则用户便可在窗口环境下方便地使用计算机。</p>
+<p>由此可知，OS是铺设在计算机硬件上的多层软件的集合，它们不仅增强了系统的功能，还隐藏了对硬件操作的具体细节，实现了对计算机硬件操作的多个层次的抽象模型。</p>
+<h3 id="4试说明推动多道批处理系统形成和发展的主要动力是什么">4.试说明推动多道批处理系统形成和发展的主要动力是什么</h3>
+<p>最主要动力是提高资源的利用率和系统吞吐量。</p>
+<h3 id="5何谓脱机io和联机">5.何谓脱机I/O和联机</h3>
+<p>脱机I/O技术是事先将装有用户程序和数据的纸带装入纸带输入机，在一台外围及的控制下，把纸带（卡片）上的数据（程序）输入到磁带上。当CPU需要这些程序和数据时，再从磁带上高速地调入内存。</p>
+<h3 id="6试说明推动分时系统形成和发展的主要动力是什么">6.试说明推动分时系统形成和发展的主要动力是什么</h3>
+<p>为了满足用户对人—机交互的需求，由此形成了一种新型OS</p>
+<h3 id="7实现分时系统的关键问题是什么-应该如何解决">7.实现分时系统的关键问题是什么 应该如何解决</h3>
+<p>如何使用户能与自己的作业进行交互。为此，系统首先必须能提供多个终端，同事给多个用户使用；</p>
+<p>其次，当用户在自己的终端上键入命令时，系统应能及时接收，并及时处理该命令，再将结果返回给用户。</p>
+<p>此后，用户可根据系统返回的响应情况，再继续键入下一条命令，此即人—机交互。亦即，允许有多个用户同时通过自己的键盘键入命令，系统也应能全部及时接受并处理。</p>
+<h3 id="8为什么要引入实时操作系统">8.为什么要引入实时操作系统</h3>
+<p>实时系统是指系统能及时响应外部事件的请求，在规定的时间内完成对该事件的处理，并控制所有实时人物协调一致地运行。</p>
+<h3 id="9什么是硬实时任务和软实时任务-试举例说明">9.什么是硬实时任务和软实时任务 试举例说明</h3>
+<p>硬实时任务是指系统必须满足任务对截止时间的要求，否则可能出现难以预测的后果。用于工业和武器控制的实时系统，通常它所执行的是硬实时任务。软实时任务也联系着一个截止时间，但并不严格，若偶尔错过了任务的截止时间，对系统产生的影响也不会太大。诸如用于信息查询系统和多媒体系统中的实时系统，通常是软实时任务。</p>
+<h3 id="10试从交互性及时性以及可靠性方面将分时系统与实时系统进行比较">10.试从交互性、及时性以及可靠性方面将分时系统与实时系统进行比较</h3>
+<p>实时系统交互性更弱，分时系统交互性更强。</p>
+<p>实时系统及时性比较弹性，分时系统一般为秒级到毫秒级。</p>
+<p>分时系统要求系统可靠，实时系统要求系统高度可靠。</p>
+<h3 id="11os有几大特征-其最基本的特征是什么">11.OS有几大特征 其最基本的特征是什么</h3>
+<p>并发 共享 虚拟 异步</p>
+<p>并发和共享是多用户（多任务）OS的两个最基本的特征。它们又是护卫存在的条件。</p>
+<h3 id="12在多道程序技术的os环境下的资源共享与一般情况下的资源共享有何不同-独占资源应采取何种共享方式">12.在多道程序技术的OS环境下的资源共享与一般情况下的资源共享有何不同 独占资源应采取何种共享方式</h3>
+<p>OS环境下的资源共享或称为资源复用，是指系统中的资源可供内存中多个并发执行的进程共同使用。这里宏观上既限定了时间（进程在内存期间），也限定了地点（内存）。而后者不限定时间和地点。</p>
+<p>独占资源应采取互斥共享方式</p>
+<h3 id="13什么是时分复用技术-举例说明它能提高资源利用率的根本原因是什么">13.什么是时分复用技术 举例说明它能提高资源利用率的根本原因是什么</h3>
+<p>(1)虚拟处理技术。利用多道程序设计技术，为每道程序建立至少一个进程，让多道程序并发执行。此时虽然系统中只有一台处理机，但通过分时复用的方法，能实现同时（宏观上）为多个用户服务，使每个终端用户都认为是有一个处理机在专门为他服务。</p>
+<p>(2)虚拟设备技术。将一台物理I/O设备虚拟为多台逻辑上的I/O设备，并允许每个用户占一台逻辑上的I/O设备。这样便可使原来仅允许在一段时间内有一个用户访问的设备（即临界资源），变为允许多个用户”同时“访问的共享设备。</p>
+<h3 id="14是什么原因使操作系统具有异步性特征">14.是什么原因使操作系统具有异步性特征</h3>
+<p>对于内存中的每个进程，在何时能获得处理机运行，何时又因提出某种资源请求而暂停，以及进程以怎样的速度向前推进，每道程序总共需要多少时间才能完成等等，都是不可预知的。或者说，进程是以人们不可预知的速度向前推进的，此即进程的异步性。</p>
+<h3 id="15处理机管理有哪些主要功能-其主要任务是什么">15.处理机管理有哪些主要功能 其主要任务是什么</h3>
+<p>主要功能：</p>
+<p>创建和撤销进程，对诸进程的运行进行协调，实现进程之间的信息交换，以及按照一定的算法把处理机分配给进程。</p>
+<p>主要任务：</p>
+<p>进程控制、进程同步、进程通信、作业调度和进程调度。</p>
+<h3 id="16内存管理管理有哪些主要功能-其主要任务是什么">16.内存管理管理有哪些主要功能 其主要任务是什么</h3>
+<p>1.内存分配</p>
+<p>(1)为每道程序分配内存空间，使它们”各得其所“</p>
+<p>(2)提高存储器的利用率，尽量减少不可用的内存空间（碎片）</p>
+<p>(3)允许正在运行的程序申请附加的内存空间，以适应数据和数据动态增长的需要》</p>
+<p>2.内存保护</p>
+<p>(1)确保每道用户程序都仅在自己的内存空间内运行，彼此互不干扰</p>
+<p>(2)绝不允许用户程序访问操作系统的程序和数据，也不允许用户程序转移到非共享的其它用户程序中去执行。</p>
+<p>3.地址映射</p>
+<p>将地址空间中的逻辑地址转换为在内存空间中与之对应的物理地址</p>
+<p>4.内存扩充</p>
+<p>(1)请求调入功能，系统允许在装入部分用户程序和数据的情况下，便能启动该程序运行。在程序运行过程中，若发现要继续运行时所需的程序和数据尚未装入内存，可向OS发出请求，由OS从磁盘中所需部分调入内存，以便继续运行。</p>
+<p>(2)置换功能，若发现在内存中已无足够的空间来装入需要调入的程序和数据时，系统应能将内存中的一部分暂时不用的程序和数据调至硬盘上，以腾出内存空间，然后再将所需调入的部分装入内存。</p>
+<h3 id="17设备管理有哪些主要功能-其主要任务是什么">17.设备管理有哪些主要功能 其主要任务是什么</h3>
+<p>主要功能：</p>
+<p>(1)缓冲管理</p>
+<p>如果在I/O设备和CPU之间引入缓冲，则可有效地缓和CPU和I/O设备速度不匹配的矛盾，提高CPU的利用率，进而提高系统吞吐量。</p>
+<p>(2)设备分配</p>
+<p>根据用户进程的I/O请求、系统现有资源情况以及按照某种设备分配策略，为之分配其所需的设备。</p>
+<p>(3)设备处理</p>
+<p>用于实现CPU和设备控制器之间的通信，即由CPU向设备控制器发出I/O命令，要求它完成指定的I/O操作；反之，由CPU接受从控制器发来的中断请求，并给予迅速的响应和合法的处理。</p>
+<p>主要任务</p>
+<p>(1)完成用户进程提出的I/O请求，为用户进程分配所需的I/O设备，并完成指定的I/O操作。</p>
+<p>(2)提高CPU和I/O设备的利用率，提高I/O速度，方便用户使用I/O设备。</p>
+<h3 id="18文件管理有哪些主要功能-其主要任务是什么">18.文件管理有哪些主要功能 其主要任务是什么</h3>
+<p>主要功能</p>
+<p>(1)文件存储空间的管理</p>
+<p>(2)目录管理</p>
+<p>(3)文件的读/写管理与保护</p>
+<h3 id="19试说明推动传统os演变为现代os的主要因素是什么">19.试说明推动传统OS演变为现代OS的主要因素是什么</h3>
+<p>软件开发技术的不断发展 促进了OS结构的更新换代</p>
+<h3 id="20什么是微内核os">20.什么是微内核OS</h3>
+<p>尚无一致公认的定义 可以从如下四个方面进行描述</p>
+<p>(1)足够小的内核</p>
+<p>(2)基于客户/服务器模式</p>
+<p>(3)应用”机制与策略分离“原理</p>
+<p>(4)采用面向对象技术</p>
+<h3 id="21微内核操作系统具有哪些优点-它为何能有这些优点">21.微内核操作系统具有哪些优点 它为何能有这些优点</h3>
+<p>(1)提高了系统的可拓展性，由于微内核OS的许多功能是由相对独立的服务器软件来实现的，当开发了新的硬件和软件时，微内核OS只需在相应的服务器中增加新的功能，或再增加一个专门的服务器。</p>
+<p>(2)增强了系统的可靠性。微内核是通过精心设计和严格测试的，容易保证其正确性，另一方面，它提供了规范而精简的应用程序接口API，为微内核外部的程序编制高质量的代码创造了条件。</p>
+<p>(3)可移植性强，在微内核操作系统中所有与特定CPU和I/O设备硬件有关的代码，均放在内核和内核下面的硬件隐藏层中。</p>
+<p>(4)提供了对分布式系统的支持。在微内核操作系统中客户和服务器之间、服务器与服务器之间的通信采用消息传递通信机制，致使微内核OS能很好地支持分布式系统和网络系统。</p>
+<p>(5)融入了面向对象技术</p>
+<h3 id="22现代操作系统较之传统操作系统又增加了哪些功能和特征">22.现代操作系统较之传统操作系统又增加了哪些功能和特征</h3>
+<p>(1)系统安全</p>
+<p>认证技术、密码技术、访问控制技术、反病毒技术</p>
+<p>(2)网络的功能和服务</p>
+<p>网络通信、资源管理、应用互操作</p>
+<p>(3)支持多媒体</p>
+<p>接纳控制功能、实时调度、多媒体文件的存储</p>
+<h3 id="23在微内核os中-为什么要采用客户服务器模式">23.在微内核OS中 为什么要采用客户/服务器模式</h3>
+<p>客户/服务机模式有一系列优点</p>
+<p>(1)数据的分布处理和存储</p>
+<p>(2)便于集中管理</p>
+<p>(3)灵活性和可扩充性</p>
+<p>(4)易于改编应用软件</p>
+<h3 id="24在基于微内核结构的os中-应用了哪些新技术">24.在基于微内核结构的OS中 应用了哪些新技术</h3>
+<h3 id="25何谓微内核技术-在微内核中通常提供了哪些功能">25.何谓微内核技术 在微内核中通常提供了哪些功能</h3>
+<p>(1)进程（线程）管理</p>
+<p>(2)低级存储器管理</p>
+<p>(3)中断和陷入处理</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wuyining</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-08-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+          </div>
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://wuyining0130.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>wuyining</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
