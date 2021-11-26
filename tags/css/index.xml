@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on 人生万事塞翁马 只生欢喜不生愁</title>
+    <link>https://wuyining0130.github.io/tags/css/</link>
+    <description>Recent content in CSS on 人生万事塞翁马 只生欢喜不生愁</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Nov 2021 20:23:08 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS水平垂直居中方案</title>
+      <link>https://wuyining0130.github.io/post/css%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Fri, 26 Nov 2021 20:23:08 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/post/css%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/</guid>
+      <description>CSS水平垂直居中方案 控制元素水平垂直居中是CSS布局中十分常见的一个问题，此篇文章对常见的CSS水平垂直居中方案进行了一个总结。 一.水平居</description>
+    </item>
+    
+  </channel>
+</rss>

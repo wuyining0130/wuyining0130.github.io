@@ -1,0 +1,162 @@
+---
+title: "CSS水平垂直方案"
+date: 2021-11-26T20:23:08+08:00
+tags: ["计算机网络"]
+categories: ["408笔记"]
+draft: false
+---
+# CSS水平垂直居中方案
+
+控制元素水平垂直居中是CSS布局中十分常见的一个问题，此篇文章对常见的CSS水平垂直居中方案进行了一个总结。
+
+### 一.水平居中:原生CSS方法和flex布局方法
+
+##### 1.1 行内元素:text-align: center;
+
+```css
+#container{
+    text-align:center;
+}
+```
+
+##### 1.2.1单个块级元素:margin:auto;
+
+```css
+#center{
+    margin:0 auto;
+}
+```
+
+##### 1.2.2多个块级元素:text-align:center;+dispay:inline-block;
+
+```css
+#container{
+    text-align:center;
+}
+#center{
+    display:inline-block;
+}
+```
+
+##### 1.2.3 flex布局（适用于所有情况）
+
+```css
+#container{
+   display:flex;
+   justify-content:center;
+}
+```
+
+### 二.垂直居中
+
+##### 1.1.2行内元素：设置line-height = height
+
+很常用，主要用于文字排版，也可以用于图片元素居中。
+
+```css
+#container{
+    height:200px;
+    line-height:200px;
+}
+```
+
+##### 1.1.2当要被居中的元素是inline或者inline-block元素:vertical-align:middle
+
+```css
+#container{
+    display:table-cell;
+    vertical-align:middle
+```
+
+##### 1.2.1块级元素：flex布局
+
+不需要兼容IE时的最优选择
+
+```css
+#container{
+    display:flex;
+    align-items:center;
+}
+```
+
+##### 1.2.2块级元素：绝对定位+margin:auto
+
+可以兼容IE，不需要提前知道尺寸。
+
+```css
+#container{
+position:relative;
+}
+#center:{
+    position:absolute;
+    margin:auto;
+}
+```
+
+##### 1.2.3块级元素：绝对定位+计算技巧
+
+可以兼容IE，需要提前知道尺寸。
+
+```css
+#container{
+    position:relative;
+}
+ 
+#center{
+    width:100px;
+    height:100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-50px 0 0 -50px;
+}
+```
+
+##### 1.2.4 块级元素：绝对定位 + transform
+
+兼容性一般,不需要提前知道尺寸。
+
+```css
+#container{
+    position: relative;
+    height: 200px;
+}
+#center{
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+```
+
+##### 1.2.5块级元素：伪元素
+
+```css
+.parent {
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    text-align: center;
+}
+.child {
+    background: blue;
+    width: 100px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.parent::before {
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;            
+}
+```
+
+参考文章：
+
+[CSS设置居中的方案总结-超全 - 掘金](https://juejin.cn/post/6844903560879013901)
+
+[【前端攻略】最全面的水平垂直居中方案与flexbox布局 - ChokCoco - 博客园](https://www.cnblogs.com/coco1s/p/4444383.html)
