@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on 人生万事塞翁马 只生欢喜不生愁</title>
+    <link>https://wuyining0130.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on 人生万事塞翁马 只生欢喜不生愁</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 Dec 2021 02:53:21 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>This的相关问题</title>
+      <link>https://wuyining0130.github.io/post/this%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 23 Dec 2021 02:53:21 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/post/this%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
+      <description>Javascript 的 this 用法/指向 this是JavaScript语言的一个关键字。 它是函数运行时，在函数体内部自动生成的一个对象，只能在函数体内部使用。 那么t</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>This的相关问题 - 人生万事塞翁马 只生欢喜不生愁</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wuyining" /><meta name="description" content="Javascript 的 this 用法/指向 this是JavaScript语言的一个关键字。 它是函数运行时，在函数体内部自动生成的一个对象，只能在函数体内部使用。 那么t" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="https://wuyining0130.github.io/post/this%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="This的相关问题" />
+<meta property="og:description" content="Javascript 的 this 用法/指向 this是JavaScript语言的一个关键字。 它是函数运行时，在函数体内部自动生成的一个对象，只能在函数体内部使用。 那么t" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/post/this%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" />
+<meta property="article:published_time" content="2021-12-23T02:53:21+08:00" />
+<meta property="article:modified_time" content="2021-12-23T02:53:21+08:00" />
+<meta itemprop="name" content="This的相关问题">
+<meta itemprop="description" content="Javascript 的 this 用法/指向 this是JavaScript语言的一个关键字。 它是函数运行时，在函数体内部自动生成的一个对象，只能在函数体内部使用。 那么t">
+<meta itemprop="datePublished" content="2021-12-23T02:53:21+08:00" />
+<meta itemprop="dateModified" content="2021-12-23T02:53:21+08:00" />
+<meta itemprop="wordCount" content="2079">
+
+
+
+<meta itemprop="keywords" content="JavaScript," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="This的相关问题"/>
+<meta name="twitter:description" content="Javascript 的 this 用法/指向 this是JavaScript语言的一个关键字。 它是函数运行时，在函数体内部自动生成的一个对象，只能在函数体内部使用。 那么t"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">This的相关问题</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-12-23 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"> 前端笔记 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#javascript-的-this-用法指向"><strong>Javascript 的 this 用法/指向</strong></a>
+          <ul>
+            <li><a href="#纯粹的函数调用">纯粹的函数调用</a></li>
+            <li><a href="#作为对象方法的调用">作为对象方法的调用</a></li>
+            <li><a href="#作为构造函数调用">作为构造函数调用</a></li>
+            <li><a href="#apply调用">apply调用</a></li>
+          </ul>
+        </li>
+        <li><a href="#this的前世今生">this的“前世今生”</a>
+          <ul>
+            <li><a href="#隐藏参数this和普通参数arguments">隐藏参数<code>this</code>和普通参数<code>arguments</code></a></li>
+            <li><a href="#在一个对象的名字未知的情况下如何拿到它的引用">在一个对象的名字未知的情况下，如何拿到它的引用？</a></li>
+            <li><a href="#小白调用与大师调用">小白调用与大师调用</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="javascript-的-this-用法指向"><strong>Javascript 的 this 用法/指向</strong></h2>
+<p><code>this</code>是JavaScript语言的一个关键字。</p>
+<p>它是函数运行时，在函数体内部自动生成的一个对象，只能在函数体内部使用。</p>
+<p>那么<code>this</code>到底怎么用？<code>this</code>的值是什么？<code>this</code>的指向是什么？</p>
+<p>函数的不同使用场合，<code>this</code>有不同的值。总的来说，<code>this</code>就是函数运行时所在的环境对象。</p>
+<p>大致能够分为四种情况</p>
+<ul>
+<li>纯粹的函数调用</li>
+<li>作为对象方法的调用</li>
+<li>作为构造函数调用</li>
+<li><code>apply</code>调用</li>
+</ul>
+<h3 id="纯粹的函数调用">纯粹的函数调用</h3>
+<p>作为函数调用时也就是全局调用，此时的this代表全局对象。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">test</span><span class="p">();</span>  <span class="c1">// 1
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="作为对象方法的调用">作为对象方法的调用</h3>
+<p>当函数作为某个对象的时，this就指向这个上级对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">test</span><span class="p">;</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">m</span><span class="p">();</span> <span class="c1">// 1
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="作为构造函数调用">作为构造函数调用</h3>
+<p>所谓构造函数，就是通过这个函数，可以生成一个新对象。此时的this指向这个新对象。而不是全局对象。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+　<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">test</span><span class="p">();</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">x</span> <span class="c1">// 1
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="apply调用">apply调用</h3>
+<p><code>apply()</code>是函数的一个方法，作用是改变函数的调用对象。它的第一个参数就表示改变后的调用这个函数的对象。因此，这时<code>this</code>指的就是这第一个参数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+　<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">test</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">m</span><span class="p">.</span><span class="nx">apply</span><span class="p">()</span> <span class="c1">// 0
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>apply()</code>的参数为空时，默认调用全局对象。因此，这时的运行结果为<code>0</code>，证明<code>this</code>指的是全局对象。</p>
+<p>如果把最后一行代码修改为</p>
+<p><code>obj.m.apply(obj); //1</code></p>
+<p>运行结果就变成了<code>1</code>，证明了这时<code>this</code>代表的是对象<code>obj</code>。</p>
+<h2 id="this的前世今生">this的“前世今生”</h2>
+<h3 id="隐藏参数this和普通参数arguments">隐藏参数<code>this</code>和普通参数<code>arguments</code></h3>
+<p>除了箭头函数，每个函数都有<code>arguments</code>和<code>this</code>。正如JS之父所说，JS的原创部分并不优秀，优秀之处并不原创。这两样东西就有很多难用之处。</p>
+<p><code>arguments</code>是一个伪数组，即没有数组共有属性的数组。如何变成真的数组？<code>Array.from</code>能使所有不是数字的东西变成数组。</p>
+<p><strong>如果不给任何条件，<code>this</code>默认指向<code>window</code>。</strong></p>
+<p>在使用<code>call()</code>时，如果传的<code>this</code>不是对象，JS会自动把它封装成一个对象。在声明的时候加上 <code>’use strict’</code>可避免JS的封装。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">fn</span><span class="p">(){</span>
+<span class="s1">&#39;use strict&#39;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上述代码中如何传<code>arguments</code>？</p>
+<p>调用<code>fn</code>即可传<code>arguments</code></p>
+<p><code>fn(1,2,3)</code>那么<code>argumens</code>就是<code>[1,2,3]</code>伪数组</p>
+<p>如何传<code>this</code>？</p>
+<p>目前可以用<code>fn.call(xxx,1,2,3)</code>传<code>this</code>和<code>arguments</code></p>
+<p><code>this</code>就是<code>xxx</code>，而且<code>xxx</code>在不加<code>’use strict’</code>会被自动转换成对象</p>
+<p>后面的<code>1,2,3</code>就是<code>arguments</code></p>
+<p><strong><code>this</code>就好比隐藏参数，而<code>arguments</code>是普通参数，<code>this</code>的本质是参数</strong></p>
+<h3 id="在一个对象的名字未知的情况下如何拿到它的引用">在一个对象的名字未知的情况下，如何拿到它的引用？</h3>
+<p>首先是一种土办法，用<strong>参数</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">//对象
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">name</span><span class="o">:</span><span class="s1">&#39;feank&#39;</span><span class="p">,</span>
+	<span class="nx">sayHi</span><span class="p">(</span><span class="nx">P</span><span class="p">){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`你好，我叫`</span><span class="o">+</span><span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span>
+<span class="c1">//类
+</span><span class="c1"></span><span class="kr">class</span> <span class="nx">Persom</span><span class="p">{</span>
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">}</span>
+	<span class="nx">sayHi</span><span class="p">(</span><span class="nx">P</span><span class="p">){</span>
+		<span class="nx">consoloe</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`你好，我叫`</span><span class="o">+</span><span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>谁会用这种土办法？</p>
+<p>python就用了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span><span class="n">python代码</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+	<span class="n">def__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span> <span class="c1">#构造函数</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+	<span class="k">def</span> <span class="nf">sayHi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hi,I am &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;frank&#39;</span><span class="p">)</span>
+<span class="n">person</span><span class="o">.</span><span class="n">sayHi</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方法的特点是</p>
+<ul>
+<li>每个函数都接受一个额外的<code>self</code></li>
+<li>这个<code>self</code>就是传进来的对象</li>
+<li>只不过python会偷偷帮你传对象</li>
+<li><code>person.sayHi()</code>等价于<code>person.sayHi(person)</code></li>
+<li><code>person</code>就被传给<code>self</code>了</li>
+</ul>
+<p>JS没有模仿Python的思路，而是走了另一条更难理解的路</p>
+<p>JS在每个函数里加了this，并用this获取那个对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">name</span><span class="o">:</span><span class="err">’</span><span class="nx">frank</span><span class="err">’</span><span class="p">,</span>
+	<span class="nx">sayHi</span><span class="o">~~</span><span class="err">（</span><span class="k">this</span><span class="err">）</span><span class="o">~~</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`你好，我叫`</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>person.sayHi()</code>相当于<code>person.sayHi(person)</code></li>
+<li>然后<code>person</code>被传给<code>this了(person是个地址）</code></li>
+<li>这样，每个函数都能用<code>this</code>获取一个未知对象的引用了</li>
+</ul>
+<p><strong><code>person.sayHi()</code>会隐式地把<code>person</code>作为<code>this</code>传给<code>sayHi</code>，方便<code>sayHi</code>获取<code>person</code>对应的对象。</strong></p>
+<p><strong>总结一下目前的知识</strong></p>
+<ul>
+<li>我们想让函数获取对象的引用</li>
+<li>但是并不想通过变量名做到</li>
+<li>Python通过一个额外的self参数做到</li>
+<li>JS通过额外的JS做到</li>
+</ul>
+<h3 id="小白调用与大师调用">小白调用与大师调用</h3>
+<p><code>person.sayHi()</code>和<code>person.sayHi(person)</code>中，前一种是对的，虽然后一种看起来更加完整易于理解，但从语法角度上是错的。</p>
+<p>JS为了解决这种不和谐，提供了两种调用方法。</p>
+<ol>
+<li>小白调用法<code>person.sayHi()</code>会自动把<code>person</code>传到函数里作为<code>this</code></li>
+<li>大师调用法<code>person.sayHi.call(person)</code>需要自己手动把<code>person</code>传到函数里作为<code>this</code></li>
+</ol>
+<p>让我们看一个例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+	<span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>大师调用法<code>add.call(undefined,1,2)</code>中为什么要多写一个<code>undefined</code>？</p>
+<p>因为第一个参数要作为<code>this</code>，而代码里没有<code>this</code>，所以只能用<code>undefined</code>占位，<code>null</code>也能起到同样效果。</p>
+<p>小白调用发中，<code>this</code>是<strong>隐式传递</strong>的。</p>
+<p>而大师调用发中，<code>this</code>是<strong>显式传递</strong>的。</p>
+<p><code>add.call(undefined,1,2)</code>等价于 <code>add.apply(undefined,[1,2])</code></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wuyining</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-12-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/javascript/">JavaScript</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/css%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/">
+            <span class="next-text nav-default">CSS水平垂直居中方案</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://wuyining0130.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>wuyining</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
