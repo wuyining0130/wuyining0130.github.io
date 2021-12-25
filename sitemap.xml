@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wuyining0130.github.io/categories/</loc>
+    <lastmod>2021-12-26T01:09:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wuyining0130.github.io/post/</loc>
+    <lastmod>2021-12-26T01:09:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wuyining0130.github.io/tags/</loc>
     <lastmod>2021-12-26T01:09:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -23,8 +37,15 @@
   </url>
   
   <url>
-    <loc>https://wuyining0130.github.io/categories/</loc>
-    <lastmod>2021-12-23T02:53:21+08:00</lastmod>
+    <loc>https://wuyining0130.github.io/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2021-12-26T01:09:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wuyining0130.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2021-12-26T01:09:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,21 +58,7 @@
   </url>
   
   <url>
-    <loc>https://wuyining0130.github.io/tags/</loc>
-    <lastmod>2021-12-23T02:53:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wuyining0130.github.io/post/this%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2021-12-23T02:53:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wuyining0130.github.io/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-12-23T02:53:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -88,13 +95,6 @@
   <url>
     <loc>https://wuyining0130.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%92%8C%E5%9B%A0%E7%89%B9%E7%BD%91/</loc>
     <lastmod>2021-08-11T19:03:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wuyining0130.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2021-08-10T13:19:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
