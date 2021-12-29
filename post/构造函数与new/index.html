@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>构造函数与new - 人生万事塞翁马 只生欢喜不生愁</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wuyining" /><meta name="description" content="小程序的六次改进 我们来做一个小程序，输入正方形边长为5，输出它的面积和周长。 1 2 3 4 5 6 7 8 9 10 //1.0版本 let square = { width:5; getArea(){ return this.width*this.width }, getLength(){ return this.width*4 } } 假" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="https://wuyining0130.github.io/post/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8Enew/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="构造函数与new" />
+<meta property="og:description" content="小程序的六次改进 我们来做一个小程序，输入正方形边长为5，输出它的面积和周长。 1 2 3 4 5 6 7 8 9 10 //1.0版本 let square = { width:5; getArea(){ return this.width*this.width }, getLength(){ return this.width*4 } } 假" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/post/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8Enew/" />
+<meta property="article:published_time" content="2021-12-30T04:51:24+08:00" />
+<meta property="article:modified_time" content="2021-12-30T04:51:24+08:00" />
+<meta itemprop="name" content="构造函数与new">
+<meta itemprop="description" content="小程序的六次改进 我们来做一个小程序，输入正方形边长为5，输出它的面积和周长。 1 2 3 4 5 6 7 8 9 10 //1.0版本 let square = { width:5; getArea(){ return this.width*this.width }, getLength(){ return this.width*4 } } 假">
+<meta itemprop="datePublished" content="2021-12-30T04:51:24+08:00" />
+<meta itemprop="dateModified" content="2021-12-30T04:51:24+08:00" />
+<meta itemprop="wordCount" content="1205">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="构造函数与new"/>
+<meta name="twitter:description" content="小程序的六次改进 我们来做一个小程序，输入正方形边长为5，输出它的面积和周长。 1 2 3 4 5 6 7 8 9 10 //1.0版本 let square = { width:5; getArea(){ return this.width*this.width }, getLength(){ return this.width*4 } } 假"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">构造函数与new</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-12-30 </span>
+        
+          <span class="more-meta"> 1205 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#小程序的六次改进">小程序的六次改进</a></li>
+        <li><a href="#new操作符">new操作符</a>
+          <ul>
+            <li><a href="#基于原型链">基于原型链</a></li>
+            <li><a href="#基于classes6新语法">基于class(ES6新语法）</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="小程序的六次改进">小程序的六次改进</h2>
+<p>我们来做一个小程序，输入正方形边长为5，输出它的面积和周长。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">//1.0版本
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">square</span> <span class="o">=</span> <span class="p">{</span>
+<span class="nx">width</span><span class="o">:</span><span class="mi">5</span><span class="p">;</span>
+<span class="nx">getArea</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span>
+	<span class="p">},</span>
+<span class="nx">getLength</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="mi">4</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>假如需要很多很多正方形呢？比如12个。大部分人会选择用循环搞定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">//2.0版本
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">squareList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="p">&lt;</span><span class="nt">12</span><span class="err">;</span><span class="na">i</span><span class="err">++)</span><span class="p">{</span>
+	<span class="na">squareList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span> <span class="err">=</span> <span class="p">{</span>
+		<span class="na">width</span><span class="err">:</span><span class="na">5</span><span class="err">;</span>
+		<span class="na">getArea</span><span class="err">()</span><span class="p">{</span>
+		<span class="na">return</span> <span class="na">this.width</span><span class="err">*</span><span class="na">this.width</span>
+		<span class="p">}</span><span class="err">,</span>
+		<span class="na">getLength</span><span class="err">()</span><span class="p">{</span>
+			<span class="na">return</span> <span class="na">this.width</span><span class="err">*</span><span class="na">4</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果不全是5呢？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">//3.0版本
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">squareList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="kd">let</span> <span class="nx">widthList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="p">&lt;</span><span class="nt">12</span><span class="err">;</span><span class="na">i</span><span class="err">++)</span><span class="p">{</span>
+	<span class="na">squareList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span> <span class="err">=</span> <span class="p">{</span>
+		<span class="na">width</span><span class="err">:</span><span class="na">widthList</span><span class="err">[</span><span class="na">i</span><span class="err">],</span>
+				<span class="na">getArea</span><span class="err">()</span><span class="p">{</span>
+		<span class="na">return</span> <span class="na">this.width</span><span class="err">*</span><span class="na">this.width</span>
+		<span class="p">}</span><span class="err">,</span>
+		<span class="na">getLength</span><span class="err">()</span><span class="p">{</span>
+			<span class="na">return</span> <span class="na">this.width</span><span class="err">*</span><span class="na">4</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>但这是垃圾代码，浪费了太多内存。<code>getArea()</code>和<code>getLength()</code>函数各自被重复创建了11次。</p>
+<p>让我们借助原型，将12个对象的共有属性放到原型中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">//4.0版本
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">squareList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="kd">let</span> <span class="nx">widthList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">squarePrototype</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="nx">getArea</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="k">this</span><span class="o">*</span><span class="nx">width</span>
+	<span class="p">},</span>
+	<span class="nx">getLength</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="mi">4</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="p">&lt;</span><span class="nt">12</span><span class="err">;</span><span class="na">i</span><span class="err">++)</span><span class="p">{</span>
+	<span class="na">squreList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span> <span class="err">=</span> <span class="na">Object.create</span><span class="err">(</span><span class="na">squarePrototype</span><span class="err">)//</span><span class="na">使用现有的对象来提供新创建的对象的__proto__</span><span class="err">。</span>
+  <span class="na">squreList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span><span class="na">.width</span> <span class="err">=</span> <span class="na">widthList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>但是这个代码还是不够好。创建<code>square</code>的代码过于分散。</p>
+<p>所以我们尝试把代码抽离到一个函数中，然后调用这个函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">//5.0版本
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">squareList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="kd">let</span> <span class="nx">widthList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">createSquare</span><span class="p">(</span><span class="nx">width</span><span class="p">){</span><span class="c1">//此函数叫构造函数
+</span><span class="c1"></span>	<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">squarePrototype</span><span class="p">)</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span>
+  <span class="k">return</span> <span class="nx">obj</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">squarePrototype</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="nx">getArea</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="k">this</span><span class="o">*</span><span class="nx">width</span>
+	<span class="p">},</span>
+	<span class="nx">getLength</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="mi">4</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="p">&lt;</span><span class="nt">12</span><span class="err">;</span><span class="na">i</span><span class="err">++)</span><span class="p">{</span>
+	<span class="na">squareList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span> <span class="err">=</span> <span class="na">createSquare</span><span class="err">(</span><span class="na">widthList</span><span class="err">[</span><span class="na">i</span><span class="err">])</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>最后一个缺点，<code>squarePrototype</code>原型和<code>createSquare</code>函数还是分散的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">//6.0版本
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">squareList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="kd">let</span> <span class="nx">widthList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">createSquare</span><span class="p">(</span><span class="nx">width</span><span class="p">){</span>
+	<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">squarePrototype</span><span class="p">)</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span>
+  <span class="k">return</span> <span class="nx">obj</span>
+<span class="p">}</span>
+<span class="nx">createSquare</span><span class="p">.</span><span class="nx">squarePrototype</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//把原型放到函数上，结合够紧密了吗？
+</span><span class="c1"></span><span class="nx">getArea</span><span class="p">(){</span> 
+<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> 
+<span class="p">},</span>
+<span class="nx">getLength</span><span class="p">(){</span>
+<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="p">}</span>
+<span class="nx">constructor</span><span class="o">:</span> <span class="nx">createSquare</span> <span class="c1">//方便通过原型找到构造函数
+</span><span class="c1"></span><span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="p">&lt;</span><span class="nt">12</span><span class="err">;</span> <span class="na">i</span><span class="err">++)</span><span class="p">{</span>
+<span class="na">squareList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span> <span class="err">=</span> <span class="na">createSquare</span><span class="err">(</span><span class="na">widthList</span><span class="err">[</span><span class="na">i</span><span class="err">])</span>
+<span class="na">console.log</span><span class="err">(</span><span class="na">squareList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span><span class="na">.constructor</span><span class="err">)</span> 
+<span class="err">//</span> <span class="na">constructor可以知道谁构造了这个对象</span><span class="err">：</span><span class="na">你妈是谁</span><span class="err">？</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码几近完美。</p>
+<p>为什么不固定下来，让每个JS开发者直接使用呢？</p>
+<h2 id="new操作符">new操作符</h2>
+<h3 id="基于原型链">基于原型链</h3>
+<p>让我们最后用new写一次这个小程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">let</span> <span class="nx">squareList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="kd">let</span> <span class="nx">widthList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">Square</span><span class="p">(</span><span class="nx">width</span><span class="p">){</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span>
+<span class="p">}</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getArea</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+ <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span>
+<span class="p">}</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getLength</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="mi">4</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="p">&lt;</span><span class="nt">12</span><span class="err">;</span><span class="na">i</span><span class="err">++)</span><span class="p">{</span>
+	<span class="na">squareList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span> <span class="err">=</span> <span class="na">new</span> <span class="na">Square</span><span class="err">(</span><span class="na">widthList</span><span class="err">[</span><span class="na">i</span><span class="err">])</span>
+	<span class="na">console.log</span><span class="err">(</span><span class="na">squareList</span><span class="err">[</span><span class="na">i</span><span class="err">]</span><span class="na">.constructor</span><span class="err">)</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码没有一句多余的废话。</p>
+<p>每个函数都有prototype属性，这是JS之父故意的。</p>
+<p>每个prototype都有constructor属性，这也是JS之父故意的。</p>
+<p>对比6.0版本，我们发现new X自动做了四件事</p>
+<ol>
+<li>自动创建空对象<code>let obj = Object.create(squarePrototype)</code></li>
+<li>自动给空对象关联原型，原型地址指定为X.prototype<code>let obj = Object.create(squarePrototype)</code></li>
+<li>自动将空对象作为this关键字运行构造函数 <code>obj.width = width</code></li>
+<li>自动return this<code>return obj</code></li>
+</ol>
+<p>此时构造函数的X作用是</p>
+<ol>
+<li>X函数本身负责给对象本身添加属性</li>
+<li>X.prototype对象负责保存对象的共用属性</li>
+</ol>
+<h3 id="基于classes6新语法">基于class(ES6新语法）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">Square</span><span class="p">(</span><span class="nx">width</span><span class="p">){</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span>
+<span class="p">}</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getArea</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+ <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span>
+<span class="p">}</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getLength</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="mi">4</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这是我们我们得出的最终版本代码。</p>
+<p>然而非常遗憾的是，这个代码被某些前端认为是过时代码。</p>
+<p>ES6引入了更易于理解的新语法，class统治了天下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">class</span> <span class="nx">Square</span><span class="p">{</span>
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">width</span><span class="p">){</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span>
+		<span class="p">}</span>
+	<span class="nx">getArea</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="k">this</span><span class="o">*</span><span class="nx">width</span>
+		<span class="p">}</span>
+	<span class="nx">getLength</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="mi">4</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wuyining</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-12-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E6%B5%8F%E8%A7%88%E5%99%A8/">
+            <span class="next-text nav-default">内存图与JS浏览器</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://wuyining0130.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>wuyining</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

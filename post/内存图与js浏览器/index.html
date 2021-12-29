@@ -49,7 +49,7 @@
 <meta itemprop="description" content="按下开机键 操作系统在C盘中，当你按下开机键的那一刻，主板通电，开始读取固件。固件就是固定在主板上的存储设备，里面有开机程序。开机程序会将文件">
 <meta itemprop="datePublished" content="2021-12-26T01:09:38+08:00" />
 <meta itemprop="dateModified" content="2021-12-26T01:09:38+08:00" />
-<meta itemprop="wordCount" content="925">
+<meta itemprop="wordCount" content="1097">
 
 
 
@@ -136,8 +136,8 @@
         <div class="post-category">
             <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"> 前端笔记 </a>
             </div>
-          <span class="more-meta"> 925 words </span>
-          <span class="more-meta"> 2 mins read </span>
+          <span class="more-meta"> 1097 words </span>
+          <span class="more-meta"> 3 mins read </span>
         
       </div>
     </header>
@@ -152,7 +152,7 @@
         <li>
           <ul>
             <li><a href="#按下开机键">按下开机键</a></li>
-            <li><a href="#操作系统以linux为例">操作系统（以Linux为例）</a></li>
+            <li><a href="#操作系统被加载到内存后以linux为例">操作系统被加载到内存后（以Linux为例）</a></li>
             <li><a href="#打开浏览器">打开浏览器</a></li>
             <li><a href="#浏览器的功能">浏览器的功能</a></li>
           </ul>
@@ -164,7 +164,7 @@
             <li><a href="#执行js代码时的准备工作">执行JS代码时的准备工作</a></li>
           </ul>
         </li>
-        <li><a href="#内存图">内存图</a></li>
+        <li><a href="#内存图js引擎如何分配内存">内存图——JS引擎如何分配内存</a></li>
       </ul>
     </li>
   </ul>
@@ -174,7 +174,7 @@
     <div class="post-content">
       <h3 id="按下开机键">按下开机键</h3>
 <p>操作系统在C盘中，当你按下开机键的那一刻，主板通电，开始读取固件。固件就是固定在主板上的存储设备，里面有开机程序。开机程序会将文件里的操作系统加载到内存中运行。</p>
-<h3 id="操作系统以linux为例">操作系统（以Linux为例）</h3>
+<h3 id="操作系统被加载到内存后以linux为例">操作系统被加载到内存后（以Linux为例）</h3>
 <ol>
 <li>加载操作系统内核</li>
 <li>启动初始化进程，编号为1，每个进程都有编号。</li>
@@ -187,10 +187,11 @@
 <p>你双击Chrome图标，就会运行chrome.exe文件。开启Chrome进程作为主进程，主进程会开启一些辅助进程，如网络服务、GPU加速，每新建一个网页，都可能会开启一个子进程。</p>
 <h3 id="浏览器的功能">浏览器的功能</h3>
 <ul>
-<li>发起请求，下载HTML，解析HTML，下载CSS，解析CSS，渲染界面。</li>
+<li>发起请求，下载HTML，解析HTML，下载CSS，解析CSS，渲染界面——解析完HTML和CSS后把他们合起来显示在屏幕上。</li>
 <li>下载JS，解析JS，执行JS等。</li>
-<li>浏览器的功能模块有用户界面、渲染引擎、JS引擎、存储等。</li>
-<li>上面功能模块一般处于不同的线程。</li>
+<li>浏览器的功能模块有用户界面、渲染引擎(渲染HTML和CSS)、JS引擎、存储等。</li>
+<li>上面功能模块一般处于不同的线程。JS是单线程的。</li>
+<li>如果JS引擎要修改HTML或CSS，它不能直接修改，要通过线程之间的通信来通知渲染引擎。这个过程叫跨线程通信。DOM操作慢就是因为它需要跨线程。</li>
 </ul>
 <h2 id="二js引擎">二.JS引擎</h2>
 <h3 id="js引擎举例">JS引擎举例</h3>
@@ -199,7 +200,7 @@
 <li>网景——SpiderMonkey，后被Firefox使用，C++编写。</li>
 <li>Safari——JavaScriptCore</li>
 <li>IE——Chakra(JScript9）</li>
-<li>Edge——Chakra(JavaScript)</li>
+<li>Edge——之前Chakra(JavaScript)，现在也用V8</li>
 <li>Node.js——V8引擎</li>
 </ul>
 <h3 id="主要功能">主要功能</h3>
@@ -215,8 +216,12 @@
 <li>上述的功能被称为运行环境runtime env，都不是JS自身具备的功能。</li>
 <li>一旦把JS放进页面，就开始执行JS。</li>
 </ul>
-<h2 id="内存图">内存图</h2>
-<p><img src="https://s2.loli.net/2021/12/26/ostm9OCTIZAKfFS.png" alt="瓜分内存.PNG"></p>
+<h2 id="内存图js引擎如何分配内存">内存图——JS引擎如何分配内存</h2>
+<p><img src="https://s2.loli.net/2021/12/26/ostm9OCTIZAKfFS.png" alt="瓜分内存.PNG">
+不知什么区作用</p>
+<ul>
+<li>存放你的变量，具体地说，它会存下环境。</li>
+</ul>
 <p>红色区域作用</p>
 <ul>
 <li>红色区域专门用来存放数据，我们目前只研究该区域。</li>
@@ -253,7 +258,11 @@
           <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 </a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8Enew/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">构造函数与new</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/this%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
             <span class="next-text nav-default">This的相关问题</span>
             <span class="next-text nav-mobile">Next</span>
