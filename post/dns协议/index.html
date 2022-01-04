@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>内存图与JS浏览器 - 人生万事塞翁马 只生欢喜不生愁</title>
+  <title>DNS协议 - 人生万事塞翁马 只生欢喜不生愁</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="wuyining" /><meta name="description" content="按下开机键 操作系统在C盘中，当你按下开机键的那一刻，主板通电，开始读取固件。固件就是固定在主板上的存储设备，里面有开机程序。开机程序会将文件" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="wuyining" /><meta name="description" content="1.DNS协议是什么 概念 DNS是域名系统(Domain Name System)的缩写，提供的是一种主机名到IP地址的转换服务，就是我们常说的域名系统" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.78.2 with theme even" />
 
 
-<link rel="canonical" href="https://wuyining0130.github.io/post/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E6%B5%8F%E8%A7%88%E5%99%A8/" />
+<link rel="canonical" href="https://wuyining0130.github.io/post/dns%E5%8D%8F%E8%AE%AE/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,24 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="内存图与JS浏览器" />
-<meta property="og:description" content="按下开机键 操作系统在C盘中，当你按下开机键的那一刻，主板通电，开始读取固件。固件就是固定在主板上的存储设备，里面有开机程序。开机程序会将文件" />
+<meta property="og:title" content="DNS协议" />
+<meta property="og:description" content="1.DNS协议是什么 概念 DNS是域名系统(Domain Name System)的缩写，提供的是一种主机名到IP地址的转换服务，就是我们常说的域名系统" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wuyining0130.github.io/post/%E5%86%85%E5%AD%98%E5%9B%BE%E4%B8%8Ejs%E6%B5%8F%E8%A7%88%E5%99%A8/" />
-<meta property="article:published_time" content="2021-12-26T01:09:38+08:00" />
-<meta property="article:modified_time" content="2021-12-26T01:09:38+08:00" />
-<meta itemprop="name" content="内存图与JS浏览器">
-<meta itemprop="description" content="按下开机键 操作系统在C盘中，当你按下开机键的那一刻，主板通电，开始读取固件。固件就是固定在主板上的存储设备，里面有开机程序。开机程序会将文件">
-<meta itemprop="datePublished" content="2021-12-26T01:09:38+08:00" />
-<meta itemprop="dateModified" content="2021-12-26T01:09:38+08:00" />
-<meta itemprop="wordCount" content="1097">
+<meta property="og:url" content="https://wuyining0130.github.io/post/dns%E5%8D%8F%E8%AE%AE/" />
+<meta property="article:published_time" content="2022-01-04T09:59:16+08:00" />
+<meta property="article:modified_time" content="2022-01-04T09:59:16+08:00" />
+<meta itemprop="name" content="DNS协议">
+<meta itemprop="description" content="1.DNS协议是什么 概念 DNS是域名系统(Domain Name System)的缩写，提供的是一种主机名到IP地址的转换服务，就是我们常说的域名系统">
+<meta itemprop="datePublished" content="2022-01-04T09:59:16+08:00" />
+<meta itemprop="dateModified" content="2022-01-04T09:59:16+08:00" />
+<meta itemprop="wordCount" content="1355">
 
 
 
-<meta itemprop="keywords" content="操作系统," />
+<meta itemprop="keywords" content="计算机网络," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="内存图与JS浏览器"/>
-<meta name="twitter:description" content="按下开机键 操作系统在C盘中，当你按下开机键的那一刻，主板通电，开始读取固件。固件就是固定在主板上的存储设备，里面有开机程序。开机程序会将文件"/>
+<meta name="twitter:title" content="DNS协议"/>
+<meta name="twitter:description" content="1.DNS协议是什么 概念 DNS是域名系统(Domain Name System)的缩写，提供的是一种主机名到IP地址的转换服务，就是我们常说的域名系统"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,14 +129,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">内存图与JS浏览器</h1>
+      <h1 class="post-title">DNS协议</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-12-26 </span>
+        <span class="post-time"> 2022-01-04 </span>
         <div class="post-category">
-            <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"> 前端笔记 </a>
+            <a href="/categories/408%E7%AC%94%E8%AE%B0/"> 408笔记 </a>
             </div>
-          <span class="more-meta"> 1097 words </span>
+          <span class="more-meta"> 1355 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -149,22 +149,15 @@
   <ul>
     <li>
       <ul>
-        <li>
+        <li><a href="#1dns协议是什么">1.DNS协议是什么</a>
           <ul>
-            <li><a href="#按下开机键">按下开机键</a></li>
-            <li><a href="#操作系统被加载到内存后以linux为例">操作系统被加载到内存后（以Linux为例）</a></li>
-            <li><a href="#打开浏览器">打开浏览器</a></li>
-            <li><a href="#浏览器的功能">浏览器的功能</a></li>
+            <li><a href="#概念">概念</a></li>
+            <li><a href="#作用">作用</a></li>
           </ul>
         </li>
-        <li><a href="#二js引擎">二.JS引擎</a>
-          <ul>
-            <li><a href="#js引擎举例">JS引擎举例</a></li>
-            <li><a href="#主要功能">主要功能</a></li>
-            <li><a href="#执行js代码时的准备工作">执行JS代码时的准备工作</a></li>
-          </ul>
-        </li>
-        <li><a href="#内存图js引擎如何分配内存">内存图——JS引擎如何分配内存</a></li>
+        <li><a href="#2dns同时使用tcp和udp协议">2.DNS同时使用TCP和UDP协议？</a></li>
+        <li><a href="#3dns完整的查询过程">3.DNS完整的查询过程</a></li>
+        <li><a href="#4dns记录和报文">4.DNS记录和报文</a></li>
       </ul>
     </li>
   </ul>
@@ -172,69 +165,59 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="按下开机键">按下开机键</h3>
-<p>操作系统在C盘中，当你按下开机键的那一刻，主板通电，开始读取固件。固件就是固定在主板上的存储设备，里面有开机程序。开机程序会将文件里的操作系统加载到内存中运行。</p>
-<h3 id="操作系统被加载到内存后以linux为例">操作系统被加载到内存后（以Linux为例）</h3>
+      <h2 id="1dns协议是什么">1.DNS协议是什么</h2>
+<h3 id="概念">概念</h3>
+<p>DNS是域名系统(Domain Name System)的缩写，提供的是一种主机名到IP地址的转换服务，就是我们常说的域名系统。它是一个由分层的DNS服务器组成的分布式数据库，是定义了主机如何查询这个分布式数据库的方式的应用层协议。能够使人更方便地访问互联网，而不用去记住能够被机器直接读取的IP数串。</p>
+<h3 id="作用">作用</h3>
+<p>将域名解析为IP地址，客户端向DNS服务器（DNS服务器有自己的IP地址）发送域名查询请求，DNS服务器告知客户机Web服务器的IP地址。</p>
+<h2 id="2dns同时使用tcp和udp协议">2.DNS同时使用TCP和UDP协议？</h2>
+<p>DNS占用53号端口，同时使用TCP和UDP协议</p>
+<p>在<strong>区域传输</strong>的时候使用TCP协议</p>
+<ul>
+<li>辅域名服务器会定时（一般3小时）向主域名服务器进行查询以便了解数据是否有变动。如果有变动，会执行一次区域传送，进行数据同步。区域传送使用TCP而不是UDP，因为数据同步传送的数据量比一个请求应答的数据量要多得多。</li>
+<li>TCP是一种可靠连接，保证了数据的准确性。</li>
+</ul>
+<p>在<strong>域名解析</strong>的时候使用UDP协议</p>
+<ul>
+<li>客户端向DNS服务器查询域名，一般返回的内容都不超过512字节，用UDP传输即可。不用经过三次握手，这样DNS服务器负载更低，响应更快，理论上说，客户端也可以制定向DNS服务器查询时用TCP，但事实上，很多DNS服务器进行配置的时候，仅支持UDP查询</li>
+</ul>
+<h2 id="3dns完整的查询过程">3.DNS完整的查询过程</h2>
+<p>DNS服务器解析域名的过程：</p>
 <ol>
-<li>加载操作系统内核</li>
-<li>启动初始化进程，编号为1，每个进程都有编号。</li>
-<li>启动系统服务：文件、安全、联网</li>
-<li>等待用户登录：输入密码登录/ssh登录</li>
-<li>登录后，运行shell，用户就可以和操作系统对话了。</li>
-<li>bash是一种shell，图形化界面也可认为是一种shell。</li>
+<li>首先会在浏览器的缓存中查找对应的IP地址，如果查找到直接返回，否则继续下一步。</li>
+<li>将请求发给本地DNS服务器，在本地域名服务器缓存中查询，如果查找到，就直接将查找结果返回，否则继续下一步。</li>
+<li>本地DNS服务器向根域名服务器发送请求，根域名服务器会返回一个所查询域的顶级域名服务器地址。</li>
+<li>本地DNS服务器向顶级域名服务器发送请求，接受请求的服务器查询自己的缓存，如果有记录，就返回查询结果，如果没有就返回下一级的权威域名服务器的地址。</li>
+<li>本地DNS服务器向权威域名服务器发送请求，域名服务器返回对应的结果。</li>
+<li>本地DNS服务器将返回结果保存在缓存中，便于下次使用。</li>
+<li>本地DNS服务器将返回结果返回给浏览器。</li>
 </ol>
-<h3 id="打开浏览器">打开浏览器</h3>
-<p>你双击Chrome图标，就会运行chrome.exe文件。开启Chrome进程作为主进程，主进程会开启一些辅助进程，如网络服务、GPU加速，每新建一个网页，都可能会开启一个子进程。</p>
-<h3 id="浏览器的功能">浏览器的功能</h3>
+<h2 id="4dns记录和报文">4.DNS记录和报文</h2>
+<p>DNS 服务器中以资源记录的形式存储信息，每一个 DNS 响应报文一般包含多条资源记录。一条资源记录的具体的格式为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">（Name，Value，Type，TTL）
+</code></pre></td></tr></table>
+</div>
+</div><p>其中 TTL 是资源记录的生存时间，它定义了资源记录能够被其他的 DNS 服务器缓存多长时间。</p>
+<p>常用的一共有四种 Type 的值，分别是 A、NS、CNAME 和 MX ，不同 Type 的值，对应资源记录代表的意义不同：</p>
 <ul>
-<li>发起请求，下载HTML，解析HTML，下载CSS，解析CSS，渲染界面——解析完HTML和CSS后把他们合起来显示在屏幕上。</li>
-<li>下载JS，解析JS，执行JS等。</li>
-<li>浏览器的功能模块有用户界面、渲染引擎(渲染HTML和CSS)、JS引擎、存储等。</li>
-<li>上面功能模块一般处于不同的线程。JS是单线程的。</li>
-<li>如果JS引擎要修改HTML或CSS，它不能直接修改，要通过线程之间的通信来通知渲染引擎。这个过程叫跨线程通信。DOM操作慢就是因为它需要跨线程。</li>
+<li>
+<p>如果 Type = A，则 Name 是主机名，Value 是主机名对应的 IP 地址。因此一条记录为 A 的资源记录，提供了标 准的主机名到 IP 地址的映射。</p>
+</li>
+<li>
+<p>如果 Type = NS，则 Name 是个域名，Value 是负责该域名的 DNS 服务器的主机名。这个记录主要用于 DNS 链式 查询时，返回下一级需要查询的 DNS 服务器的信息。</p>
+</li>
+<li>
+<p>如果 Type = CNAME，则 Name 为别名，Value 为该主机的规范主机名。该条记录用于向查询的主机返回一个主机名 对应的规范主机名，从而告诉查询主机去查询这个主机名的 IP 地址。主机别名主要是为了通过给一些复杂的主机名提供 一个便于记忆的简单的别名。</p>
+</li>
+<li>
+<p>如果 Type = MX，则 Name 为一个邮件服务器的别名，Value 为邮件服务器的规范主机名。它的作用和 CNAME 是一 样的，都是为了解决规范主机名不利于记忆的缺点。</p>
+</li>
 </ul>
-<h2 id="二js引擎">二.JS引擎</h2>
-<h3 id="js引擎举例">JS引擎举例</h3>
-<ul>
-<li>Chrome——V8引擎，C++编写。</li>
-<li>网景——SpiderMonkey，后被Firefox使用，C++编写。</li>
-<li>Safari——JavaScriptCore</li>
-<li>IE——Chakra(JScript9）</li>
-<li>Edge——之前Chakra(JavaScript)，现在也用V8</li>
-<li>Node.js——V8引擎</li>
-</ul>
-<h3 id="主要功能">主要功能</h3>
-<ol>
-<li>编译：把JS代码翻译为机器能执行的字节码或机器码。</li>
-<li>优化：改写代码，使其更高效。</li>
-<li>执行：执行上面的字节码或者机器码。</li>
-<li>垃圾回收：把JS用完的内存回收，方便之后再次使用。</li>
-</ol>
-<h3 id="执行js代码时的准备工作">执行JS代码时的准备工作</h3>
-<ul>
-<li>提供API：window/document/setTimeout</li>
-<li>上述的功能被称为运行环境runtime env，都不是JS自身具备的功能。</li>
-<li>一旦把JS放进页面，就开始执行JS。</li>
-</ul>
-<h2 id="内存图js引擎如何分配内存">内存图——JS引擎如何分配内存</h2>
-<p><img src="https://s2.loli.net/2021/12/26/ostm9OCTIZAKfFS.png" alt="瓜分内存.PNG">
-不知什么区作用</p>
-<ul>
-<li>存放你的变量，具体地说，它会存下环境。</li>
-</ul>
-<p>红色区域作用</p>
-<ul>
-<li>红色区域专门用来存放数据，我们目前只研究该区域。</li>
-<li>红色区域并不存变量名，变量名在不知什么区。</li>
-<li>每种浏览器的分配规则并不一样。上图的区域也并不完成。没有调用栈和任务队列等区域。</li>
-</ul>
-<p>Stack和Heap</p>
-<ul>
-<li>红色区域分为stack栈和heap堆</li>
-<li>Stack区的每个数据顺序存放，存放非对象。</li>
-<li>Heap区的每个数据随机存放，存放对象。</li>
-</ul>
-<p>内存图可以帮助我们区分值和地址。</p>
 
     </div>
 
@@ -246,7 +229,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-12-26
+        2022-01-04
         
     </span>
   </p>
@@ -255,16 +238,12 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+          <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8Enew/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">构造函数与new</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/this%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
-            <span class="next-text nav-default">This的相关问题</span>
+        
+        <a class="next" href="/post/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">
+            <span class="next-text nav-default">网络模型</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

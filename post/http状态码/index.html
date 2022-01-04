@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HTTP状态码 - 人生万事塞翁马 只生欢喜不生愁</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wuyining" /><meta name="description" content="类别 原因 描述 1xx Informational(信息性状态码） 接受的请求正在处理 2xx Success(成功状态码） 请求正常处理完毕 3xx Redirecti" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="https://wuyining0130.github.io/post/http%E7%8A%B6%E6%80%81%E7%A0%81/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="HTTP状态码" />
+<meta property="og:description" content="类别 原因 描述 1xx Informational(信息性状态码） 接受的请求正在处理 2xx Success(成功状态码） 请求正常处理完毕 3xx Redirecti" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/post/http%E7%8A%B6%E6%80%81%E7%A0%81/" />
+<meta property="article:published_time" content="2022-01-04T09:36:25+08:00" />
+<meta property="article:modified_time" content="2022-01-04T09:36:25+08:00" />
+<meta itemprop="name" content="HTTP状态码">
+<meta itemprop="description" content="类别 原因 描述 1xx Informational(信息性状态码） 接受的请求正在处理 2xx Success(成功状态码） 请求正常处理完毕 3xx Redirecti">
+<meta itemprop="datePublished" content="2022-01-04T09:36:25+08:00" />
+<meta itemprop="dateModified" content="2022-01-04T09:36:25+08:00" />
+<meta itemprop="wordCount" content="3714">
+
+
+
+<meta itemprop="keywords" content="计算机网络," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP状态码"/>
+<meta name="twitter:description" content="类别 原因 描述 1xx Informational(信息性状态码） 接受的请求正在处理 2xx Success(成功状态码） 请求正常处理完毕 3xx Redirecti"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">HTTP状态码</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-04 </span>
+        <div class="post-category">
+            <a href="/categories/408%E7%AC%94%E8%AE%B0/"> 408笔记 </a>
+            </div>
+          <span class="more-meta"> 3714 words </span>
+          <span class="more-meta"> 8 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#12xxsuccess成功状态码">1.2XX（Success成功状态码）</a>
+          <ul>
+            <li><a href="#1200-ok">（1）200 OK</a></li>
+            <li><a href="#2204-no-content">（2）204 No Content</a></li>
+            <li><a href="#3206-paritial-content">（3）206 Paritial Content</a></li>
+          </ul>
+        </li>
+        <li><a href="#23xxredirection-重定向状态码">2.3XX（Redirection 重定向状态码）</a>
+          <ul>
+            <li><a href="#1301-moved-permanently">（1）301 Moved Permanently</a></li>
+            <li><a href="#2302-found">（2）302 Found</a></li>
+            <li><a href="#3303-see-other">（3）303 See Other</a></li>
+            <li><a href="#4304-not-modified">（4）304 Not Modified</a></li>
+            <li><a href="#5307-tempotaty-redirect">（5）307 Tempotaty Redirect</a></li>
+          </ul>
+        </li>
+        <li><a href="#34xxclient-error客户端错误代码">3.4XX（Client Error客户端错误代码）</a>
+          <ul>
+            <li><a href="#1400-bad-request">（1）400 Bad Request</a></li>
+            <li><a href="#2401-unauthorized">（2）401 Unauthorized</a></li>
+            <li><a href="#3403-forbidden">（3）403 Forbidden</a></li>
+            <li><a href="#4404-not-found">（4）404 Not Found</a></li>
+            <li><a href="#5405-method-not-allowed">（5）405 Method Not Allowed</a></li>
+          </ul>
+        </li>
+        <li><a href="#45xxserver-error服务器错误状态码">4.5XX（Server Error服务器错误状态码）</a>
+          <ul>
+            <li><a href="#1500-internet-server-errorer">（1）500 Internet Server Errorer</a></li>
+            <li><a href="#2502-bad-gateway">（2）502 Bad Gateway</a></li>
+            <li><a href="#3503-service-unavailable">（3）503 Service Unavailable</a></li>
+            <li><a href="#4504-gateway-timeout">（4）504 Gateway Timeout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <table>
+<thead>
+<tr>
+<th>类别</th>
+<th>原因</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>Informational(信息性状态码）</td>
+<td>接受的请求正在处理</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>Success(成功状态码）</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>Redirection(重定向状态码)</td>
+<td>需要进行附加操作一完成请求</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>Client Error(客户端错误状态码）</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>Server Error(服务器错误状态码)</td>
+<td>服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12xxsuccess成功状态码">1.2XX（Success成功状态码）</h2>
+<p>状态码2XX表示请求被正常处理了</p>
+<h3 id="1200-ok">（1）200 OK</h3>
+<p>200 OK表示客户端发来的请求被服务器端正常处理了</p>
+<h3 id="2204-no-content">（2）204 No Content</h3>
+<p>该状态码表示客户端发送的请求已经在服务端正常处理了，但是没有返回的内容，响应报文中不包含尸体的主体部分。</p>
+<h3 id="3206-paritial-content">（3）206 Paritial Content</h3>
+<p>该状态码表示客户端进行了范围请求，而服务器端执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。</p>
+<p>如果没有响应体,则在大多数场景下,这两种响应码完全等效,但有一种情况下,HTTP/204响应会让浏览器有不同的表现.这种情况就是当用户在浏览器窗口window或者frame/iframe框架中导航的时候.</p>
+<ul>
+<li>如果导航到的URL返回了一个没有响应体的HTTP/200响应,则页面将会显示一个空白文档(就是一片白色).页面的URL地址也会变成新指定的URL.</li>
+<li>如果服务器返回的是一个HTTP/204响应,当前页面不会有任何变化,就好像根本没有进行导航操作一样.页面的URL地址也保持不变.</li>
+</ul>
+<p>HTTP/205响应码很少见,它类似于HTTP/204,除了页面保留在当前文档不变以外,多了一步操作,就是要清空当前文档内所有表单控件的内容.</p>
+<h2 id="23xxredirection-重定向状态码">2.3XX（Redirection 重定向状态码）</h2>
+<p>3XX响应结果表明浏览器需要执行某些特殊的处理以正确处理请求</p>
+<h3 id="1301-moved-permanently">（1）301 Moved Permanently</h3>
+<p>永久重定向</p>
+<p>该状态码表示请求的资源已经被分配了新的URL，以后应使用资源指定的URL。新的URL会在HTTP响应头中的Location首部字段指定。若用户已经把原来的URL保存为书签，此时会按照Location中新的URL重新保存该书签。同时，搜索引擎在抓取新内容的同时也将旧的网址替换为重定向之后的网址。</p>
+<p>使用场景</p>
+<ul>
+<li>当我们想换个域名，旧的域名不再使用时，用户访问旧域名时用301就重定向到新的域名。其实也是告诉搜索引擎收录的域名需要对新的域名进行收录。</li>
+<li>在搜索引擎的搜索结果中出现了不带www的域名，而带www的域名却没有收录，这个时候可以用301重定向来告诉搜索引擎我们目标的域名是哪一个。</li>
+</ul>
+<h3 id="2302-found">（2）302 Found</h3>
+<p>临时重定向</p>
+<p>该状态码表示请求的资源被分配到了新的URL，希望用户（本次）能使用新的URL访问资源。和301 Moved Permanently状态码相似，但是302代表的资源不是被永久重定向，只是临时性质的。也就是说已移动的资源对应的URL将来还有可能发生改变。若用户把URL保存成书签，但不会像301状态码出现时那样去更新书签，而是仍旧保留返回302状态码的页面对应的URL。同时，搜索引擎会抓取新的内容而保留旧的网址。因为服务器返回302代码，搜索引擎认为新的网址只是暂时的。</p>
+<p>使用场景：</p>
+<ul>
+<li>当我们在做活动时，登录到首页自动重定向，进入活动页面。</li>
+<li>未登陆的用户访问用户中心重定向到登录页面</li>
+<li>访问404页面重定向到首页</li>
+</ul>
+<h3 id="3303-see-other">（3）303 See Other</h3>
+<p>该状态码表示由于请求对应的资源存在着另一个URL，应该用GET方法定向获取请求的资源</p>
+<p>303 See Other 状态码和302 Found状态码有着相似的功能，但是303状态码明确表示客户端应当采用GET方法获取资源。</p>
+<p>303状态码通常作为PUT或POST操作的返回结果，它表示重定向连接指向的不是新上传的资源，而是另一个页面，比如消息确认页面或上传进度页面，而请求重定向页面的方法总是使用GET。</p>
+<p>注意：</p>
+<ul>
+<li>当301、302、303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文内的主体，之后请求会再次自动发送。</li>
+<li>301、302标准是禁止将POST方法变成GET方法的，但实际大家都会这么做。</li>
+</ul>
+<h3 id="4304-not-modified">（4）304 Not Modified</h3>
+<p>浏览器缓存相关</p>
+<p>该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况。304状态码返回时，不包含任何响应的主体部分。304虽然被划分在3XX中，但是和重定向没有关系。</p>
+<p>带条件的请求（HTTP条件请求）：使用GET方法请求，请求报文中包含（if-match、if-none-match、if-modified-since、if-unmodified-since、if-range）中任意首部</p>
+<p>状态码304并不是一种错误，而是告诉客户端有缓存，直接使用缓存中的数据。返回页面的只有头部信息，是没有内容部分的，这样在一定程度上提高了网页的性能。</p>
+<h3 id="5307-tempotaty-redirect">（5）307 Tempotaty Redirect</h3>
+<p>307表示临时重定向。该状态码与302 Found 有着相同含义，尽管302禁止POST变成GET，但是实际使用时还是这样做了。</p>
+<p>307会遵守浏览器标准，不会从POST变成GET。但是对于处理请求的行为，不同浏览器还是会出现不同的要求。规范要求浏览器继续向Location的地址POST内容。</p>
+<h2 id="34xxclient-error客户端错误代码">3.4XX（Client Error客户端错误代码）</h2>
+<p>4XX的响应结果表明客户端是发生错误的原因所在。</p>
+<h3 id="1400-bad-request">（1）400 Bad Request</h3>
+<p>该状态码表示请求报文中存在语法错误。当错误发生时，需修改请求后的内容再次发送请求。另外，浏览器会向200 OK一样对待该状态码。</p>
+<h3 id="2401-unauthorized">（2）401 Unauthorized</h3>
+<p>该状态码表示发送的请求需要有通过HTTP认证（BASIC认证、DIGEST认证的）的认证信息，若之前已进行过依次请求，则表示用户认证失败。</p>
+<p>返回含有401的响应必须包含一个适用于被请求资源的WWW-Authenticate首部以质询（Challenge）用户信息。当浏览器初次接收到401响应，会弹出认证用的对话窗口。</p>
+<p>以下情况会出现401：</p>
+<p>●401.1 - 登录失败。</p>
+<p>●401.2 - 服务器配置导致登录失败。</p>
+<p>●401.3 - 由于 ACL 对资源的限制而未获得授权。</p>
+<p>●401.4 - 筛选器授权失败。</p>
+<p>●401.5 - ISAPI/CGI 应用程序授权失败。</p>
+<p>●401.7 - 访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。</p>
+<h3 id="3403-forbidden">（3）403 Forbidden</h3>
+<p>该状态码表明请求资源的访问被服务器拒绝了，服务器端没有必要给出详细理由，但是可以在响应报文实体的主体中进行说明。进入该状态后，不能再继续进行验证，该访问是永久禁止的，并且与应用逻辑密切相关。</p>
+<p>●403.1 - 执行访问被禁止。</p>
+<p>●403.2 - 读访问被禁止。</p>
+<p>●403.3 - 写访问被禁止。</p>
+<p>●403.4 - 要求 SSL。</p>
+<p>●403.5 - 要求 SSL 128。</p>
+<p>●403.6 - IP 地址被拒绝。</p>
+<p>●403.7 - 要求客户端证书。</p>
+<p>●403.8 - 站点访问被拒绝。</p>
+<p>●403.9 - 用户数过多。</p>
+<p>●403.10 - 配置无效。</p>
+<p>●403.11 - 密码更改。</p>
+<p>●403.12 - 拒绝访问映射表。</p>
+<p>●403.13 - 客户端证书被吊销。</p>
+<p>●403.14 - 拒绝目录列表。</p>
+<p>●403.15 - 超出客户端访问许可。</p>
+<p>●403.16 - 客户端证书不受信任或无效。</p>
+<p>●403.17 - 客户端证书已过期或尚未生效</p>
+<p>●403.18 - 在当前的应用程序池中不能执行所请求的 URL。这个错误代码为 IIS 6.0 所专用。</p>
+<p>●403.19 - 不能为这个应用程序池中的客户端执行 CGI。这个错误代码为 IIS 6.0 所专用。</p>
+<p>●403.20 - Passport 登录失败。这个错误代码为 IIS 6.0 所专用。</p>
+<h3 id="4404-not-found">（4）404 Not Found</h3>
+<p>该状态码表明服务器上无法找到请求的资源。除此之外，也可在服务器端拒绝请求且不想说明理由时使用，以下情况会出现404：</p>
+<p>●404.0 -（无） – 没有找到文件或目录。</p>
+<p>●404.1 - 无法在所请求的端口上访问 Web 站点。</p>
+<p>●404.2 - Web 服务扩展锁定策略阻止本请求。</p>
+<p>●404.3 - MIME 映射策略阻止本请求。</p>
+<h3 id="5405-method-not-allowed">（5）405 Method Not Allowed</h3>
+<p>该状态码表示客户端请求的方法虽然能被服务器识别，但是服务器禁止使用该方法，GET和HEAD方法，服务器应该总是允许客户端进行访问，客户端可以通过OPTIONS（预检）来查看服务器允许的访问方法。如下</p>
+<p>Access-Control-Allow-Methods：GET、HEAD、PUT、PATCH、POST、DETELE</p>
+<h2 id="45xxserver-error服务器错误状态码">4.5XX（Server Error服务器错误状态码）</h2>
+<p>5XX的响应结果表明服务器本身发生错误</p>
+<h3 id="1500-internet-server-errorer">（1）500 Internet Server Errorer</h3>
+<p>该状态码表明服务器端在执行请求时发生了错误。也有可能是Web应用存在的bug或某些临时的故障。</p>
+<h3 id="2502-bad-gateway">（2）502 Bad Gateway</h3>
+<p>该状态码表明扮演网关或代理角色的服务器，从上游服务器中接收到的响应是无效的。注意，502错误通常不是客户端能够修复的，而是需要途径的Web服务器或者代理服务器进行修复。</p>
+<p>以下情况会出现502：</p>
+<ul>
+<li>502.1 - CGI （通用网关接口）应用程序超时。</li>
+<li>502.2 - CGI （通用网关接口）应用程序出错。</li>
+</ul>
+<h3 id="3503-service-unavailable">（3）503 Service Unavailable</h3>
+<p>该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。如果事先得知解除以上情况需要的时间，最好写入RetryAfter首部字段再返回客户端。</p>
+<p>使用场景</p>
+<ul>
+<li>服务器停机维护时，主动用503响应请求。</li>
+<li>nginx设置限速，超过限速，会返回503.</li>
+</ul>
+<h3 id="4504-gateway-timeout">（4）504 Gateway Timeout</h3>
+<p>该状态码表示网关或者代理的服务器无法在规定的时间内获得想要的响应。它是HTTP1.1中新加入的。</p>
+<p>使用场景</p>
+<ul>
+<li>代码执行时间超时，或者发生了死循环。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wuyining</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%BD%93%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BE%93%E5%85%A5google.com%E5%B9%B6%E6%8C%89%E4%B8%8B%E5%9B%9E%E8%BD%A6%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">当在浏览器中输入Google.com并按下回车之后发生了什么？</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8Enew/">
+            <span class="next-text nav-default">构造函数与new</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://wuyining0130.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>wuyining</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

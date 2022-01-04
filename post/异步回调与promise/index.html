@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>异步、回调与promise - 人生万事塞翁马 只生欢喜不生愁</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wuyining" /><meta name="description" content="异步与同步 在理解promise之前，我们首先要搞清楚，什么是异步？什么是回调？ 网上的解释经常混淆异步与回调。 一句话解释 如果能直接拿到结果，就" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="https://wuyining0130.github.io/post/%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E4%B8%8Epromise/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="异步、回调与promise" />
+<meta property="og:description" content="异步与同步 在理解promise之前，我们首先要搞清楚，什么是异步？什么是回调？ 网上的解释经常混淆异步与回调。 一句话解释 如果能直接拿到结果，就" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/post/%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E4%B8%8Epromise/" />
+<meta property="article:published_time" content="2022-01-04T09:46:54+08:00" />
+<meta property="article:modified_time" content="2022-01-04T09:46:54+08:00" />
+<meta itemprop="name" content="异步、回调与promise">
+<meta itemprop="description" content="异步与同步 在理解promise之前，我们首先要搞清楚，什么是异步？什么是回调？ 网上的解释经常混淆异步与回调。 一句话解释 如果能直接拿到结果，就">
+<meta itemprop="datePublished" content="2022-01-04T09:46:54+08:00" />
+<meta itemprop="dateModified" content="2022-01-04T09:46:54+08:00" />
+<meta itemprop="wordCount" content="2391">
+
+
+
+<meta itemprop="keywords" content="JavaScript," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="异步、回调与promise"/>
+<meta name="twitter:description" content="异步与同步 在理解promise之前，我们首先要搞清楚，什么是异步？什么是回调？ 网上的解释经常混淆异步与回调。 一句话解释 如果能直接拿到结果，就"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">异步、回调与promise</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-04 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"> 前端笔记 </a>
+            </div>
+          <span class="more-meta"> 2391 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#异步与同步">异步与同步</a></li>
+            <li><a href="#回调callback">回调callback</a></li>
+            <li><a href="#异步与回调的关系">异步与回调的关系</a></li>
+            <li><a href="#判断异步同步">判断异步同步</a></li>
+            <li><a href="#promise">Promise</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="异步与同步">异步与同步</h3>
+<p>在理解<code>promise</code>之前，我们首先要搞清楚，什么是异步？什么是回调？</p>
+<p>网上的解释经常混淆异步与回调。</p>
+<p>一句话解释</p>
+<p>如果能直接拿到结果，就是同步。</p>
+<p>例如在医院窗口挂号，拿到号你才会离开窗口。同步任务可能消耗10ms，也可能需要3s。总之不拿到结果你是不会离开的。</p>
+<p>如果不能直接拿到结果，那就是异步。</p>
+<p>比如你在餐厅门口等位，你拿到号可以去逛街。什么时候才能真正吃饭呢？</p>
+<p>你可以每10分钟去餐厅问一下，这种方法就是轮询。</p>
+<p>也可以扫码用微信接受通知，而这就是我们所说的回调。</p>
+<p>以<code>AJAX</code>为例</p>
+<p><code>request.send()</code>之后，并不能直接得到<code>response</code>。必须等到<code>readyState</code>变为<code>4</code>后，浏览器回头调用<code>request.onreadystatechange</code>函数，我们才能得到<code>request.response</code>。</p>
+<p>这跟餐厅给你发送微信提醒的过程是类似的。</p>
+<h3 id="回调callback">回调callback</h3>
+<p>你写给自己用的函数，不是回调。</p>
+<p>你写给别人用的函数，就是回调。</p>
+<p><code>request.onreadystatechange</code>就是你写给浏览器调用的，意思就是让浏览器回头调用一个这个函数。</p>
+<p>写了却不调用，给别人调用的函数，就是回调。“回头你调用一下呗”。</p>
+<p><strong>举例</strong></p>
+<p>把函数1给另一个函数2</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">f1</span><span class="p">(){}</span>
+<span class="kd">function</span> <span class="nx">f2</span><span class="p">(</span><span class="nx">fn</span><span class="p">){</span>
+	<span class="nx">fn</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="nx">f2</span><span class="p">(</span><span class="nx">f1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>分析</strong></p>
+<ol>
+<li>我调用f1没有？答：没有</li>
+<li>我把f1传给f2（别人）了没有？答：传了</li>
+<li>f2调用f1了没有？答：f2调用了f1</li>
+</ol>
+<p>综上，f1是我写给f2调用的函数，f1是回调。</p>
+<h3 id="异步与回调的关系">异步与回调的关系</h3>
+<p>异步任务需要用到回调函数，但是回调函数不一定只用在异步任务里，也可以用到同步任务里。</p>
+<p><code>array,forEach(n⇒console.log(n))</code>就是同步回调</p>
+<p>异步任务需要在得到结果时通知JS来拿结果。怎么通知呢？</p>
+<p>可以让JS写留一个函数地址（电话号码）给浏览器，异步任务完成时浏览器调用该函数地址即可（拨打电话）。同时把结果作为参数传给该函数（电话通知可以来吃了）</p>
+<p>这个函数是我写给浏览器调用的，所以是回调函数。</p>
+<h3 id="判断异步同步">判断异步同步</h3>
+<p>如果一个函数的返回值处于</p>
+<ul>
+<li>setTimeout</li>
+<li>AJAX(即XMLHttpRequest）</li>
+<li>AddEventListener</li>
+</ul>
+<p>这三个东西内部，那么这个函数就是异步函数。</p>
+<p>注意，不要把AJAX设置为同步，这样会使请求期间页面卡住。</p>
+<p><strong>摇骰子</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">摇骰子</span><span class="p">(){</span>
+	<span class="nx">setTimeout</span><span class="p">(()=&gt;{</span>
+		<span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+	<span class="p">},</span><span class="mi">1000</span><span class="p">)</span>
+	<span class="c1">//return undefined
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>分析</strong></p>
+<p>摇骰子()没有写return,那就是return undefined</p>
+<p>箭头函数里有return，返回真正的结果</p>
+<p>所以这是一个异步函数/异步任务</p>
+<p><strong>摇骰子续</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">摇骰子</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="c1">//undefined
+</span></code></pre></td></tr></table>
+</div>
+</div><p>那怎么拿到异步结果呢？</p>
+<p>可以用回调，写个函数，然后把函数地址给它。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">f1</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)}</span>
+<span class="nx">摇骰子</span><span class="p">(</span><span class="nx">f1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后我要求摇骰子函数得到结果后把结果作为参数传给f1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">摇骰子</span><span class="p">(</span><span class="nx">fn</span><span class="p">){</span>
+	<span class="nx">setTimeout</span><span class="p">(()=&gt;{</span>
+		<span class="nx">fn</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">},</span><span class="mi">1000</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这个代码可以进行简化</p>
+<p>由于f1声明之后只用了一次，所以可以删掉f1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">f1</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)}</span>
+<span class="nx">摇骰子</span><span class="p">(</span><span class="nx">f1</span><span class="p">)</span>
+<span class="c1">//改为
+</span><span class="c1"></span><span class="nx">摇骰子</span><span class="p">(</span><span class="nx">x</span> <span class="o">=</span> <span class="o">&gt;</span><span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)})</span>
+<span class="c1">//再简化为
+</span><span class="c1"></span><span class="nx">摇骰子</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+<span class="c1">//如果参数不一致就不能这样简化
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>总结</strong></p>
+<ol>
+<li>异步任务不能直接立刻拿到结果</li>
+<li>于是我们传一个回调给异步任务</li>
+<li>异步任务完成时调用回调</li>
+<li>调用的时候把结果作为参数</li>
+</ol>
+<p>但是异步任务有两个结果，如果失败，怎么办？</p>
+<p>方法一：回调接受两个参数,node.js就是用这种方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;./1.txt&#39;</span><span class="p">,(</span><span class="nx">error</span><span class="p">,</span><span class="nx">data</span><span class="p">)=&gt;{</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;失败&#39;</span><span class="p">);</span><span class="k">return</span><span class="p">}</span><span class="c1">//失败
+</span><span class="c1"></span>		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span><span class="c1">//成功
+</span><span class="c1"></span><span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>方法二：搞两个回调</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">ajax</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span><span class="s1">&#39;/1.json&#39;</span><span class="p">,</span><span class="nx">data</span><span class="p">=&gt;{},</span><span class="nx">error</span><span class="p">=&gt;{})</span>
+<span class="c1">//前面函数是成功回调，后面函数是失败回调
+</span><span class="c1"></span><span class="nx">ajax</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span><span class="s1">&#39;/1.json&#39;</span><span class="p">,{</span>
+	<span class="nx">success</span><span class="o">:</span><span class="p">()=&gt;{},</span><span class="nx">fail</span><span class="o">:</span><span class="p">()=&gt;{}</span>
+<span class="p">})</span>
+<span class="c1">//接受一个对象，对象有两个key表示成功和失败
+</span></code></pre></td></tr></table>
+</div>
+</div><p>这些方法的不足</p>
+<p>不管是方法一还是方法二，都有问题</p>
+<ol>
+<li>不规范，名称五花八门，有人用success+error,有人用success+fail,有人用done+fail</li>
+<li>容易出现回调地狱，代码变得看不懂</li>
+<li>很难进行错误处理</li>
+</ol>
+<p>回调地狱举例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">getUser</span><span class="p">(</span> <span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+	<span class="nx">getGroups</span><span class="p">(</span><span class="nx">user</span><span class="p">,(</span><span class="nx">groups</span><span class="p">)=&gt;{</span>
+		<span class="nx">groups</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="p">(</span><span class="nx">g</span><span class="p">)=&gt;{</span>
+			<span class="nx">g</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span><span class="nx">x</span><span class="p">.</span><span class="nx">ownerID</span> <span class="o">===</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+				<span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">))</span>
+			<span class="p">})</span>
+		<span class="p">})</span>
+	<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这还只是四层回调，你能想象20层回调吗？</p>
+<p>怎么解决回调问题？怎么让回调变得更好用？</p>
+<h3 id="promise">Promise</h3>
+<p>为了实现这三个目标</p>
+<ol>
+<li>规范回调的名字或顺序</li>
+<li>拒绝回调地狱，让代码可读性更强</li>
+<li>很方便地捕获错误</li>
+</ol>
+<p>前端程序员开始翻书了</p>
+<ul>
+<li>1976年，Daniel P.Fridman和David Wise提出Promise思想</li>
+<li>后人基于此发明了Future、Delay 、Deferred等</li>
+<li>前端结合Promise和JS，制订了Promise/A+规范，该规范详细描述了Promise的原理和使用方法</li>
+</ul>
+<p>以AJAX的封装为例来解释Promise的用法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">ajax</span> <span class="o">=</span> <span class="p">(</span><span class="nx">method</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">)</span> <span class="p">=&gt;{</span>
+	<span class="kr">const</span> <span class="p">{</span><span class="nx">sucess</span><span class="p">,</span><span class="nx">fail</span><span class="p">}</span> <span class="o">=</span> <span class="nx">options</span><span class="c1">//ES6析构赋值
+</span><span class="c1"></span>	<span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequset</span><span class="p">()</span>
+	<span class="nx">request</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span><span class="nx">url</span><span class="p">)</span>
+	<span class="nx">request</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;{</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">){</span>
+		<span class="c1">//成功就调用success,失败就调用fail
+</span><span class="c1"></span>			<span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="p">&lt;</span><span class="nt">400</span><span class="err">)</span><span class="p">{</span>
+				<span class="na">success.call</span><span class="err">(</span><span class="na">null</span><span class="err">,</span><span class="na">request.response</span><span class="err">)</span>
+			<span class="p">}</span><span class="na">else</span> <span class="na">if</span><span class="err">(</span><span class="na">requset.status</span> <span class="p">&gt;</span><span class="o">=</span><span class="mi">400</span><span class="p">){</span>
+				<span class="nx">fail</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="nx">requset</span><span class="p">,</span><span class="nx">requset</span><span class="p">,</span><span class="nx">status</span><span class="p">)</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nx">request</span><span class="p">,</span><span class="nx">send</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="nx">ajax</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span><span class="s1">&#39;/xxx&#39;</span><span class="p">,{</span>
+	<span class="nx">success</span><span class="p">(</span><span class="nx">response</span><span class="p">){},</span><span class="nx">fail</span><span class="o">:</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">)=&gt;{}</span>
+<span class="p">})</span><span class="c1">//左边是function缩写，右边是箭头函数缩写
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Promise说这代码太傻了，我们改成Promise写法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">ajax</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span><span class="s1">&#39;/xxx&#39;</span><span class="p">,{</span>
+	<span class="nx">success</span><span class="p">(</span><span class="nx">response</span><span class="p">){},</span><span class="nx">fail</span><span class="o">:</span><span class="p">{</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">)=&gt;{}</span>
+<span class="p">})</span>
+<span class="c1">//上面用到了两个回调，还使用了success和fail
+</span><span class="c1">//改成Promise写法
+</span><span class="c1"></span><span class="nx">ajax</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span><span class="s1">&#39;/xxx&#39;</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)=&gt;{},(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">)=&gt;{})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>虽然也是回调，但是不需要记success和fail了
+then的第一个参数就是success，then的第二个参数就是fail</p>
+<p>请问ajax()返回了个啥？</p>
+<p>返回了一个含有.then()方法的对象呗</p>
+<p>那么再请问如何得到这个含有.then()的对象呢？</p>
+<p>那就要改造ajax的源码了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">ajax</span> <span class="o">=</span> <span class="p">(</span><span class="nx">method</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">)=&gt;{</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span><span class="nx">reject</span><span class="p">)=&gt;{</span>
+	<span class="kr">const</span> <span class="p">{</span><span class="nx">success</span><span class="p">,</span><span class="nx">fail</span><span class="p">}</span> <span class="o">=</span> <span class="nx">options</span>
+	<span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">()</span>
+	<span class="nx">request</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span><span class="nx">url</span><span class="p">)</span>
+	<span class="nx">request</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;{</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">){</span>
+		<span class="c1">//成功就调用resolve,失败就调用reject
+</span><span class="c1"></span>			<span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="p">&lt;</span><span class="nt">400</span><span class="err">)</span><span class="p">{</span>
+				<span class="na">resolve.call</span><span class="err">(</span><span class="na">null</span><span class="err">,</span><span class="na">request.response</span><span class="err">)</span>
+			<span class="p">}</span><span class="na">else</span> <span class="na">if</span><span class="err">(</span><span class="na">request.status</span> <span class="p">&gt;</span><span class="o">=</span><span class="mi">400</span><span class="p">){</span>
+				<span class="nx">reject</span><span class="p">,</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="nx">request</span><span class="p">)</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nx">request</span><span class="p">.</span><span class="nx">send</span><span class="p">()</span>
+<span class="p">})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>return new Promise((resolve,reject)⇒{})</p>
+<p><strong>小结</strong></p>
+<ol>
+<li>return new Promise((resolve,reject)⇒{&hellip;})</li>
+<li>任务成功调用resolve(result),任务失败调用reject(error)</li>
+<li>resolve和reject会再去调用成功和失败函数</li>
+<li>使用.then(success,fail)传入成功和失败函数</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wuyining</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/javascript/">JavaScript</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">网络模型</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E5%BD%93%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BE%93%E5%85%A5google.com%E5%B9%B6%E6%8C%89%E4%B8%8B%E5%9B%9E%E8%BD%A6%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
+            <span class="next-text nav-default">当在浏览器中输入Google.com并按下回车之后发生了什么？</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://wuyining0130.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>wuyining</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
