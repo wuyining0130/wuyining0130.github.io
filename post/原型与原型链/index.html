@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>原型与原型链 - 人生万事塞翁马 只生欢喜不生愁</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wuyining" /><meta name="description" content="为什么要有原型？ 首先来看一段简短的代码 1 2 var obj = {} obj.toString() 这段代码在浏览器中为什么不报错？ 简单解释一下，obj有一个隐藏的属性，隐藏属性存储了Ob" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="https://wuyining0130.github.io/post/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="原型与原型链" />
+<meta property="og:description" content="为什么要有原型？ 首先来看一段简短的代码 1 2 var obj = {} obj.toString() 这段代码在浏览器中为什么不报错？ 简单解释一下，obj有一个隐藏的属性，隐藏属性存储了Ob" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuyining0130.github.io/post/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/" />
+<meta property="article:published_time" content="2022-02-13T14:37:39+08:00" />
+<meta property="article:modified_time" content="2022-02-13T14:37:39+08:00" />
+<meta itemprop="name" content="原型与原型链">
+<meta itemprop="description" content="为什么要有原型？ 首先来看一段简短的代码 1 2 var obj = {} obj.toString() 这段代码在浏览器中为什么不报错？ 简单解释一下，obj有一个隐藏的属性，隐藏属性存储了Ob">
+<meta itemprop="datePublished" content="2022-02-13T14:37:39+08:00" />
+<meta itemprop="dateModified" content="2022-02-13T14:37:39+08:00" />
+<meta itemprop="wordCount" content="1408">
+
+
+
+<meta itemprop="keywords" content="JavaScript," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="原型与原型链"/>
+<meta name="twitter:description" content="为什么要有原型？ 首先来看一段简短的代码 1 2 var obj = {} obj.toString() 这段代码在浏览器中为什么不报错？ 简单解释一下，obj有一个隐藏的属性，隐藏属性存储了Ob"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">原型与原型链</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-13 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"> 前端笔记 </a>
+            </div>
+          <span class="more-meta"> 1408 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#为什么要有原型">为什么要有原型？</a></li>
+        <li><a href="#原型三大最重要知识">原型三大最重要知识</a></li>
+        <li><a href="#js世界的构造顺序">JS世界的构造顺序</a></li>
+        <li><a href="#原型与构造函数">原型与构造函数</a></li>
+        <li><a href="#原型与原型链终极图示">原型与原型链终极图示</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="为什么要有原型">为什么要有原型？</h2>
+<p>首先来看一段简短的代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">var</span> <span class="nt">obj</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nt">obj</span><span class="p">.</span><span class="nc">toString</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码在浏览器中为什么不报错？</p>
+<p>简单解释一下，<code>obj</code>有一个隐藏的属性，隐藏属性存储了<code>Object.prototype</code>对象的地址，输入<code>obj.toString()</code>时发现obj上没有toString的地址，于是就去隐藏属性里面找，最终找到了<code>Object.prototype.toString.</code></p>
+<p>再来看一段代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nx">obj2</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>obj</code>和<code>obj2</code>有什么联系？</p>
+<p>相同点是他们都可以调用.toString()。不同点是他们的地址不同，可以拥有不同的属性。反过来说就是</p>
+<p><code>**XXX.prototype</code>存储了<code>XXX</code>对象的共同属性。而这就是原型。**</p>
+<p>如果没有原型声明一个对象：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<span class="nx">toString</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">,</span>
+<span class="nx">hasOwnPropertyOf</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nb">Object</span><span class="p">.......</span>
+<span class="p">}</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{</span>
+<span class="nx">toString</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">,</span>
+<span class="nx">hasOwnPropertyOf</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nb">Object</span><span class="p">.......</span>
+<span class="p">}</span>
+<span class="nx">obj2</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这显然是不现实的。</p>
+<p><strong>原型让你无需重复声明共有属性。省代码，省内存。</strong></p>
+<p><strong>每个对象都有一个隐藏属性指向原型，这个隐藏属性就叫<code>__proto__</code></strong></p>
+<p><code>prototype</code>和<code>__proto__</code>区别是什么？</p>
+<p>它们都保存着原型的地址，但是<code>prototype</code>挂在函数上，<code>__proto__</code>挂在每个新生成的对象上。</p>
+<h2 id="原型三大最重要知识">原型三大最重要知识</h2>
+<p>众所周知，JS有三座大山，它们分别是原型、this以及AJAX。这三个知识点是JS的门槛，理解起来需要时间。不理解是正常的，否则JS就真的毫无门槛了。怎么翻过这三座大山呢？反复学反复理解。</p>
+<p>要翻过原型这座大山，有三个最重要的知识必须掌握。</p>
+<p><strong>一.原型公式</strong></p>
+<p><code>**对象.__proto__</code> <code>===</code> <code>其构造函数.prototyoe</code>**</p>
+<p>遇到这类型的题目可以直接用套公式来解决。</p>
+<p><strong>二.原型根公理</strong></p>
+<p><strong><code>Object.prototype</code> 是所有对象的（直接或间接）原型</strong></p>
+<p><strong>三.函数构造公理</strong></p>
+<p><strong>所有函数都是由<code>Function</code>构造的，即<code>任何函数.__proto__===Function.prototype</code> ，任意函数有<code>Object/Array/Function</code></strong></p>
+<p>基于这三个知识和基础知识，我们可以推出整个JS世界。</p>
+<h2 id="js世界的构造顺序">JS世界的构造顺序</h2>
+<ol>
+<li>创建根对象<code>#001(toString)</code>，根对象没有名字。</li>
+<li>创建函数的原型<code>#200(call/apply)</code>，原型<code>__proto__</code>为<code>#001</code></li>
+<li>创建数组的原型<code>#300(push/pop)</code>,原型<code>__proto__</code>为<code>#001</code></li>
+<li>创建<code>Function#301</code>，原型<code>__proto__</code>为<code>#200</code></li>
+<li>用<code>Function.prototype</code>存储函数的原型，令其等于<code>#200</code></li>
+<li>此时发现<code>Function</code>的<code>__proto__</code>和<code>prototype</code>都是<code>#200</code></li>
+<li>用<code>Funciton</code>创建<code>Object</code>函数</li>
+<li>用<code>Object.prototype</code>存储对象的原型，令其等于<code>#001</code></li>
+<li>用<code>Function</code>创建<code>Array</code>函数</li>
+<li>用<code>Array.prototype</code>存储数组对象的原型，令其等于<code>#200</code></li>
+<li>创建<code>window</code>函数</li>
+<li>用<code>window</code>中的<code>'Object''Array'</code>属性将7和9中的函数命名</li>
+</ol>
+<p>记住一点，JS创建一个对象时，是不会给这个对象名字的。</p>
+<h2 id="原型与构造函数">原型与构造函数</h2>
+<p>所谓构造函数就是用来构造对象的，会预先保存好对象的原型，new的时候将对象__p指向原型。</p>
+<p>所有对象都直接或间接指向根对象，对象想要分类时，就可以在原型链上加以换，用构造函数就可以加这一环。</p>
+<p>例子：</p>
+<ol>
+<li>自己定义构造函数X，函数里给this加属性</li>
+<li>X自动创建prototype属性和对应的对象#502</li>
+<li>在X.prototype#502上面加属性</li>
+<li>用new X()创建对象x</li>
+<li>new会将x的原__proto__设为#502</li>
+</ol>
+<h2 id="原型与原型链终极图示">原型与原型链终极图示</h2>
+<p><img src="/image/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.png" alt=""></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wuyining</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-02-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/javascript/">JavaScript</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/%E8%85%BE%E8%AE%AF%E8%85%BE%E8%AE%AF%E4%BA%91-%E5%89%8D%E7%AB%AF%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/">
+            <span class="next-text nav-default">腾讯腾讯云 前端一面面经</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/wuyining0130" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/23154218" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://wuyining0130.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>wuyining</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
