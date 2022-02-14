@@ -6,7 +6,16 @@
     <description>Recent content on 人生万事塞翁马 只生欢喜不生愁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Feb 2022 17:55:38 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 10:17:16 +0800</lastBuildDate><atom:link href="https://wuyining0130.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TCP与UDP</title>
+      <link>https://wuyining0130.github.io/post/tcp%E4%B8%8Eudp/</link>
+      <pubDate>Mon, 14 Feb 2022 10:17:16 +0800</pubDate>
+      
+      <guid>https://wuyining0130.github.io/post/tcp%E4%B8%8Eudp/</guid>
+      <description>一.UDP 1.概念 UDP的全称是用户数据报协议，在网络中她与TCP协议一样用于处理数据包，是一种无连接的协议。在OSI模型中，在传输层，处于</description>
+    </item>
+    
     <item>
       <title>谈谈闭包</title>
       <link>https://wuyining0130.github.io/post/%E8%B0%88%E8%B0%88%E9%97%AD%E5%8C%85/</link>
@@ -95,15 +104,6 @@
       
       <guid>https://wuyining0130.github.io/post/http%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/</guid>
       <description>1.常见的HTTP请求方法 GET:向服务器获取数据 ； POST：将实体提交到指定的资源，通常会造成服务器资源的修改； PUT：上传文件，更新数据</description>
-    </item>
-    
-    <item>
-      <title>TCP与UDP</title>
-      <link>https://wuyining0130.github.io/tcp%E4%B8%8Eudp/</link>
-      <pubDate>Tue, 04 Jan 2022 09:36:25 +0800</pubDate>
-      
-      <guid>https://wuyining0130.github.io/tcp%E4%B8%8Eudp/</guid>
-      <description>一.UDP 1.概念 UDP的全称是用户数据报协议，在网络中她与TCP协议一样用于处理数据包，是一种无连接的协议。在OSI模型中，在传输层，处于</description>
     </item>
     
     <item>
